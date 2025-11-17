@@ -95,9 +95,15 @@ useHead({
 
 <style lang="postcss">
 @import '@/assets/styles/form.postcss';
-@media screen and (min-width: 1024px) {
+/* @media screen and (min-width: 1024px) {
   .main {
     @apply flex h-screen overflow-hidden;
+  }
+} */
+@media screen and (min-width: 1024px) {
+  .main {
+    @apply flex overflow-hidden;
+    height: calc(100vh - theme('spacing.24'));
   }
 }
 </style>
