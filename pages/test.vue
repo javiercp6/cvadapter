@@ -115,7 +115,7 @@ const procesarCV = async () => {
 
   // 2. Llamar a nuestro backend de Nuxt (que conecta con Cloudflare AI)
   try {
-    const response = await $fetch('/api/adaptar-cv', {
+    const response = await $fetch('/api/adapter-cv', {
       method: 'POST',
       body: {
         cv_json: parsedCv,
