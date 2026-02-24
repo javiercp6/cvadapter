@@ -48,24 +48,39 @@ REGLAS ESTRICTAS DE REDACCIÓN:
       messages: messages
     });
 
-    // 5. Limpieza vital: Extraer SOLO el JSON por si la IA añade texto basura
-    let textoLimpio = aiResponse.response;
-    const inicio = textoLimpio.indexOf('{');
-    const fin = textoLimpio.lastIndexOf('}');
+    // 1. EXTRAER EL TEXTO (Soportando todos los formatos de los nuevos modelos)
+    let textoIA = "";
+
+    if (typeof aiResponse === 'string') {
+      textoIA = aiResponse; // Por si devuelve un string directo
+    } else if (aiResponse?.response) {
+      textoIA = aiResponse.response; // Formato clásico de Cloudflare
+    } else if (aiResponse?.choices?.[0]?.message?.content) {
+      textoIA = aiResponse.choices[0].message.content; // Formato estándar de OpenAI
+    } else {
+      // Si el modelo devolvió algo totalmente distinto, lanzamos un error mostrando exactamente QUÉ es
+      throw new Error(`Estructura de respuesta desconocida: ${JSON.stringify(aiResponse)}`);
+    }
+
+    // 2. FILTRAR EL JSON
+    const inicio = textoIA.indexOf('{');
+    const fin = textoIA.lastIndexOf('}');
     
     if (inicio !== -1 && fin !== -1) {
-      // Cortamos el texto para quedarnos solo con lo que hay entre { y }
-      textoLimpio = textoLimpio.substring(inicio, fin + 1);
-      
+      const jsonLimpio = textoIA.substring(inicio, fin + 1);
       return { 
         success: true, 
-        resultado: JSON.parse(textoLimpio) // Lo convertimos a objeto real
+        resultado: JSON.parse(jsonLimpio) 
       };
     } else {
-      throw new Error("El modelo no devolvió un formato JSON válido.");
+      throw new Error(`La IA no incluyó llaves {} en la respuesta. Respuesta cruda: ${textoIA}`);
     }
 
   } catch (error: any) {
-    throw createError({ statusCode: 500, statusMessage: `Error de IA: ${error.message}` });
+    // Esto mostrará el error real en tu pantalla
+    throw createError({ 
+      statusCode: 500, 
+      statusMessage: `Error de IA: ${error.message}` 
+    });
   }
 });
