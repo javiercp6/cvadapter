@@ -45,20 +45,22 @@ REGLAS ESTRICTAS DE REDACCIÓN:
   // 4. Llamar a la IA
   try {
     const aiResponse = await env.AI.run(MODEL_ID, {
-      messages: messages
+      messages: messages,
+      max_tokens: 2500 // 🔴 LA SOLUCIÓN: Darle permiso para escribir textos largos
     });
 
-    // 1. EXTRAER EL TEXTO (Soportando todos los formatos de los nuevos modelos)
+    // 1. Extraer el texto de forma segura
     let textoIA = "";
 
     if (typeof aiResponse === 'string') {
-      textoIA = aiResponse; // Por si devuelve un string directo
+      textoIA = aiResponse;
     } else if (aiResponse?.response) {
-      textoIA = aiResponse.response; // Formato clásico de Cloudflare
-    } else if (aiResponse?.choices?.[0]?.message?.content) {
-      textoIA = aiResponse.choices[0].message.content; // Formato estándar de OpenAI
+      textoIA = aiResponse.response;
+    } else if (aiResponse?.choices?.[0]?.message) {
+      const msg = aiResponse.choices[0].message;
+      // Toma el contenido real, o si está vacío (null), toma sus pensamientos
+      textoIA = msg.content || msg.reasoning_content || "";
     } else {
-      // Si el modelo devolvió algo totalmente distinto, lanzamos un error mostrando exactamente QUÉ es
       throw new Error(`Estructura de respuesta desconocida: ${JSON.stringify(aiResponse)}`);
     }
 
@@ -73,11 +75,10 @@ REGLAS ESTRICTAS DE REDACCIÓN:
         resultado: JSON.parse(jsonLimpio) 
       };
     } else {
-      throw new Error(`La IA no incluyó llaves {} en la respuesta. Respuesta cruda: ${textoIA}`);
+      throw new Error(`La IA no devolvió JSON válido. Respuesta: ${textoIA}`);
     }
 
   } catch (error: any) {
-    // Esto mostrará el error real en tu pantalla
     throw createError({ 
       statusCode: 500, 
       statusMessage: `Error de IA: ${error.message}` 
