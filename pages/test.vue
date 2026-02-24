@@ -64,7 +64,7 @@ import { ref } from 'vue'
 // Un CV muy básico (sin mentiras, pero redactado de forma muy simple)
 const cvDePrueba = {
   "datos_personales": {
-    "nombre": "Alex Dev",
+    "nombre": "Alexx Dev",
     "titulo": "Programador"
   },
   "habilidades": ["JavaScript", "React", "CSS", "Git", "Trabajo en equipo"],
