@@ -168,8 +168,8 @@ const procesarCV = async () => {
       <!-- ==========================================
            RIGHT COLUMN (Action Form Minimalista)
            ========================================== -->
-      <div class="flex flex-col h-full">
-        <div class="bg-white p-5 sm:p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col h-full">
+      <div  class="flex flex-col h-full">
+        <div v-if="formSettings" class="bg-white p-5 sm:p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col h-full">
           
           <div class="mb-5 flex-grow">
             <label class="block text-sm font-semibold text-slate-900 mb-1">
@@ -210,8 +210,12 @@ const procesarCV = async () => {
             </span>
           </button>
         </div>
-        <!-- <CardCV :formSettings="formSettings" /> -->
-        {{ resultData }}
+        
+        <CardCV v-else :formSettings="formSettings" />
+        
+        
+       <!--  {{ resultData }}
+        {{ formSettings }} -->
       </div>
     </main>
   </div>
