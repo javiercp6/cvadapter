@@ -211,7 +211,7 @@ const procesarCV = async () => {
           </button>
         </div>
         
-        <CardCV v-else :formSettings="resultData" />
+        <CardCV v-else :formSettings="resultData.resultado" />
         
         
        <!--  {{ resultData }}
