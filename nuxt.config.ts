@@ -2,7 +2,7 @@ import { defineNuxtConfig } from 'nuxt/config'
 import en from './i18n/locales/en.json'
 
 export default defineNuxtConfig({
-  devtools: { enabled: false },
+  devtools: { enabled: true },
 
   site: {
     url:
