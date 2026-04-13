@@ -12,6 +12,17 @@ export default defineNuxtConfig({
         : 'https://www.cvfy.xyz',
   },
 
+  // Runtime config for Stripe secret key (server-side only)
+  runtimeConfig: {
+    stripeSecretKey: process.env.STRIPE_SECRET_KEY,
+    public: {
+      supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL,
+      supabaseKey: process.env.NUXT_PUBLIC_SUPABASE_KEY,
+      stripePublishableKey: process.env.NUXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
+      siteUrl: process.env.NODE_ENV === 'production' ? 'https://www.cvfy.xyz' : 'http://localhost:3000',
+    },
+  },
+
   imports: {
     autoImport: true,
   },
@@ -42,6 +53,7 @@ export default defineNuxtConfig({
     '@vite-pwa/nuxt',
     '@nuxt/fonts',
     '@nuxt/image',
+    '@nuxtjs/supabase',
   ],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

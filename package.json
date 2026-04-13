@@ -16,11 +16,14 @@
   "dependencies": {
     "@nuxt/fonts": "^0.11.4",
     "@nuxt/image": "^1.10.0",
+    "@nuxtjs/supabase": "^2.0.5",
+    "@stripe/stripe-js": "^9.1.0",
     "@tiptap/pm": "^2.14.0",
     "@tiptap/starter-kit": "^2.14.0",
     "@tiptap/vue-3": "^2.14.0",
     "core-js": "^3.43.0",
-    "nuxt": "^3.17.5"
+    "nuxt": "^3.17.5",
+    "stripe": "^22.0.1"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.27.3",
