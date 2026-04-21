@@ -1,7 +1,12 @@
-// Archivo: server/api/adaptar-cv.post.ts
+import { serverSupabaseUser } from '#supabase/server'
 
 export default defineEventHandler(async (event) => {
-  // 1. Recibir los datos desde el frontend
+  const user = await serverSupabaseUser(event)
+
+  if (!user) {
+    throw createError({ statusCode: 401, statusMessage: 'Unauthorized' })
+  }
+
   const body = await readBody(event);
   const { cv_json, oferta_trabajo } = body;
 

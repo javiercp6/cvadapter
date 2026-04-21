@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const supabase = useSupabaseClient()
-const session = useSupabaseSession()
+const user = useSupabaseUser()
+const route = useRoute()
 
 const email = ref('')
 const password = ref('')
@@ -8,8 +9,16 @@ const loading = ref(false)
 const error = ref<string | null>(null)
 const success = ref<string | null>(null)
 const mode = ref<'login' | 'signup'>('login')
-const connectionStatus = ref<'checking' | 'connected' | 'error'>('checking')
 
+const redirectPath = computed(() => {
+  return (route.query.redirect as string) || '/'
+})
+
+watch(user, () => {
+  if (user.value) {
+    return navigateTo(redirectPath.value)
+  }
+}, { immediate: true })
 
 const handleAuth = async () => {
   error.value = null
@@ -28,7 +37,7 @@ const handleAuth = async () => {
         email: email.value,
         password: password.value,
         options: {
-          emailRedirectTo: `${window.location.origin}/login`,
+          emailRedirectTo: `${window.location.origin}/confirm`,
         },
       })
 
@@ -46,7 +55,7 @@ const handleAuth = async () => {
       if (authError) throw authError
 
       if (data.user) {
-        success.value = `Welcome back, ${data.user.email}!`
+        return navigateTo(redirectPath.value)
       }
     }
   } catch (e: any) {
@@ -60,10 +69,6 @@ const signOut = async () => {
   const { error: signOutError } = await supabase.auth.signOut()
   if (signOutError) {
     error.value = signOutError.message
-  } else {
-    success.value = 'Signed out successfully'
-    email.value = ''
-    password.value = ''
   }
 }
 
@@ -72,7 +77,7 @@ const signInWithGoogle = async () => {
   const { error: oauthError } = await supabase.auth.signInWithOAuth({
     provider: 'google',
     options: {
-      redirectTo: `${window.location.origin}/login`,
+      redirectTo: `${window.location.origin}/confirm`,
     },
   })
   if (oauthError) {
@@ -84,24 +89,27 @@ const signInWithGoogle = async () => {
 <template>
   <div class="min-h-screen flex items-center justify-center bg-gray-100 p-4">
     <div class="bg-white rounded-xl shadow-lg p-8 w-full max-w-md">
-      <!-- Header -->
       <h1 class="text-2xl font-bold text-center text-slate-900 mb-2">
-        Supabase Auth Test
+        {{ mode === 'login' ? 'Welcome Back' : 'Create Account' }}
       </h1>
 
+      <div v-if="error" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+        {{ error }}
+      </div>
 
-      <!-- Sign Out Button -->
+      <div v-if="success" class="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm">
+        {{ success }}
+      </div>
+
       <button
-        v-if="session"
+        v-if="user"
         class="w-full mb-4 py-2 px-4 bg-slate-200 hover:bg-slate-300 text-slate-800 rounded-lg text-sm font-medium transition-colors"
         @click="signOut"
       >
         Sign Out
       </button>
 
-      <!-- Auth Form -->
-      <div v-if="!session" class="space-y-4">
-        <!-- Google Sign In -->
+      <div v-if="!user && !success" class="space-y-4">
         <button
           class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 rounded-lg text-sm font-medium transition-colors flex justify-center items-center gap-2"
           @click="signInWithGoogle"
@@ -115,14 +123,12 @@ const signInWithGoogle = async () => {
           Continue with Google
         </button>
 
-        <!-- Divider -->
         <div class="relative flex items-center">
           <div class="flex-grow border-t border-slate-300"></div>
           <span class="flex-shrink mx-4 text-slate-400 text-sm">or</span>
           <div class="flex-grow border-t border-slate-300"></div>
         </div>
 
-        <!-- Toggle Mode -->
         <div class="flex gap-2">
           <button
             class="flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-colors"
@@ -140,7 +146,6 @@ const signInWithGoogle = async () => {
           </button>
         </div>
 
-        <!-- Email Input -->
         <div>
           <label class="block text-sm font-medium text-slate-700 mb-1">
             Email
@@ -153,7 +158,6 @@ const signInWithGoogle = async () => {
           />
         </div>
 
-        <!-- Password Input -->
         <div>
           <label class="block text-sm font-medium text-slate-700 mb-1">
             Password
@@ -167,7 +171,6 @@ const signInWithGoogle = async () => {
           />
         </div>
 
-        <!-- Submit Button -->
         <button
           class="w-full py-2.5 px-4 bg-slate-900 hover:bg-slate-800 disabled:bg-slate-300 text-white rounded-lg text-sm font-medium transition-colors flex justify-center items-center gap-2"
           :disabled="loading"
@@ -180,7 +183,14 @@ const signInWithGoogle = async () => {
           {{ mode === 'login' ? 'Login' : 'Create Account' }}
         </button>
 
-        <!-- Info -->
+        <NuxtLink
+          v-if="mode === 'login'"
+          to="/password/reset"
+          class="block text-center text-sm text-violet-600 hover:underline"
+        >
+          Forgot your password?
+        </NuxtLink>
+
         <p class="text-xs text-slate-500 text-center">
           {{ mode === 'login' ? "Don't have an account?" : 'Already have an account?' }}
           <button

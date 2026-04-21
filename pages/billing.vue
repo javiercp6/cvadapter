@@ -4,16 +4,16 @@ const { subscription, fetchSubscription, isLoading } = useSubscription()
 const user = useSupabaseUser()
 const supabase = useSupabaseClient()
 
+definePageMeta({
+  middleware: 'require-subscription',
+})
+
 const isLoadingPortal = ref(false)
 const portalError = ref<string | null>(null)
 const invoices = ref<any[]>([])
 const isInvoicesLoading = ref(false)
 
 onMounted(async () => {
-  if (!user.value) {
-    navigateTo('/login?redirect=/billing')
-    return
-  }
   await fetchSubscription()
   await fetchInvoices()
 })

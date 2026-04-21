@@ -1,27 +1,10 @@
 import Stripe from 'stripe'
-import { createServerClient } from '@supabase/ssr'
-import { parseCookies, setCookie } from 'h3'
+import { serverSupabaseUser } from '#supabase/server'
 
 export default defineEventHandler(async (event) => {
-  const supabaseUrl = useRuntimeConfig(event).public.supabaseUrl as string
-  const supabaseKey = useRuntimeConfig(event).public.supabaseKey as string
+  const user = await serverSupabaseUser(event)
 
-  const supabase = createServerClient(supabaseUrl, supabaseKey, {
-    cookies: {
-      getAll() {
-        return Object.entries(parseCookies(event)).map(([name, value]) => ({ name, value }))
-      },
-      setAll(cookiesToSet) {
-        for (const { name, value, options } of cookiesToSet) {
-          setCookie(event, name, value, options)
-        }
-      },
-    },
-  })
-
-  const { data: { user }, error: authError } = await supabase.auth.getUser()
-
-  if (authError || !user) {
+  if (!user) {
     throw createError({ statusCode: 401, message: 'Unauthorized' })
   }
 

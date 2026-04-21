@@ -4,8 +4,14 @@ const CVFY_IMAGE = 'https://cvfy.xyz/CvFy-no-border.png'
 const { locale, t } = useI18n()
 const route = useRoute()
 const localePath = useLocalePath()
+const user = useSupabaseUser()
+const supabase = useSupabaseClient()
 const HREF = `https://cvfy.xyz${route.path}`
 const GITHUB = 'https://github.com/claudiabdm/cvfy'
+
+const signOut = async () => {
+  await supabase.auth.signOut()
+}
 
 useHead({
   htmlAttrs: {
@@ -93,7 +99,22 @@ useHead({
           <!-- Actions -->
           <div class="flex items-center justify-end gap-4">
             <LandingLangSwitch />
+            <template v-if="user">
+              <NuxtLink
+                :to="localePath('/create')"
+                class="text-[#191c1e] font-medium hover:text-[#5200e3] transition-colors duration-300 text-sm"
+              >
+                Dashboard
+              </NuxtLink>
+              <button
+                class="text-sm text-slate-500 hover:text-red-600 transition-colors duration-300"
+                @click="signOut"
+              >
+                Sign Out
+              </button>
+            </template>
             <NuxtLink
+              v-else
               :to="localePath('login')"
               class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-6 py-2.5 rounded-xl font-semibold scale-95 duration-200 ease-in-out hover:scale-100 transition-all"
             >

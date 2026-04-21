@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { useCvState } from '~/data/useCvState'
 
+definePageMeta({
+  middleware: 'require-subscription',
+})
+
 const CVFY_IMAGE = 'https://cvfy.xyz/CvFy-no-border.png'
 
 const { setUpCvSettings } = useCvState()
