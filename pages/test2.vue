@@ -40,13 +40,14 @@ const procesarCV = async () => {
     const response = await $fetch('/api/adapter-cv', {
       method: 'POST',
       body: {
-        cv_json: formSettings.value,
+        cv_json: { ...formSettings.value, profileImageDataUri: null }, // Evitar enviar la imagen al backend
         oferta_trabajo: jobOffer.value,
       },
     })
 
     if (response && response.success) {
       resultData.value = JSON.stringify(response.resultado, null, 2)
+      resultData.value.profileImageDataUri = formSettings.value.profileImageDataUri // Mantener la imagen en el resultado para mostrarla en la tarjeta
     }
     else {
       errorMessage.value = t('error-adapting-cv')
