@@ -5,11 +5,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   site: {
-    url:
-      // eslint-disable-next-line node/prefer-global/process
-      process.env.NODE_ENV === 'dev'
-        ? 'http://localhost:3000'
-        : 'https://www.cvfy.xyz',
+    url: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
   },
 
   // Runtime config for Stripe secret key (server-side only)
@@ -19,7 +15,7 @@ export default defineNuxtConfig({
       supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL,
       supabaseKey: process.env.NUXT_PUBLIC_SUPABASE_KEY,
       stripePublishableKey: process.env.NUXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
-      siteUrl: process.env.NODE_ENV === 'production' ? 'https://www.cvfy.xyz' : 'http://localhost:3000',
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
     },
   },
 
