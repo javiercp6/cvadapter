@@ -6,7 +6,7 @@ const localePath = useLocalePath()
 const { t, locale } = useI18n()
 
 const jobOffer = ref('')
-const resultData = ref<string | null>(null)
+const resultData = ref(null)
 const isLoading = ref(false)
 const errorMessage = ref('')
 
@@ -170,6 +170,9 @@ const procesarCV = async () => {
            RIGHT COLUMN (Action Form Minimalista)
            ========================================== -->
       <div  class="flex flex-col h-full">
+        <pre>
+          {{ resultData }}
+        </pre>
         <div v-if="!resultData" class="bg-white p-5 sm:p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col h-full">
           
           <div class="mb-5 flex-grow">
