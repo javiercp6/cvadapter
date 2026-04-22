@@ -46,8 +46,8 @@ const procesarCV = async () => {
     })
 
     if (response && response.success) {
+      response.resultado.profileImageDataUri = formSettings.value.profileImageDataUri // Agregar la imagen al resultado para mostrarla en la tarjeta
       resultData.value = JSON.stringify(response.resultado, null, 2)
-      resultData.value.profileImageDataUri = formSettings.value.profileImageDataUri // Mantener la imagen en el resultado para mostrarla en la tarjeta
     }
     else {
       errorMessage.value = t('error-adapting-cv')
