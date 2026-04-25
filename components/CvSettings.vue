@@ -4,6 +4,7 @@ import { useCvState } from '~/data/useCvState'
 
 const {
   formSettings,
+  getStorageKey,
   uploadCV,
   clearForm,
   resetForm,
@@ -36,7 +37,7 @@ const config = {
 watch(
   () => formSettings.value,
   (newValue, oldValue) => {
-    localStorage.setItem(`cvSettings-${i18n.locale.value}`, JSON.stringify(newValue))
+    localStorage.setItem(getStorageKey(), JSON.stringify(newValue))
     if (newValue.activeColor !== oldValue.activeColor) {
       const newColor = getCurrentColor(newValue.activeColor)
       changeColor(newColor.color, newColor.darker)

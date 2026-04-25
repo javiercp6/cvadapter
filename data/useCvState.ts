@@ -20,10 +20,17 @@ const state = reactive({
 
 export function useCvState() {
   const i18n = useI18n()
+  const route = useRoute()
+
+  function getStorageKey(): string {
+    return route.query.mode === 'adapted'
+      ? `cvSettings-adapted-${i18n.locale.value}`
+      : `cvSettings-${i18n.locale.value}`
+  }
 
   function setUpCvSettings(): void {
-    const locale = `cvSettings-${i18n.locale.value}`
-    const cvSettings = localStorage.getItem(locale)
+    const storageKey = getStorageKey()
+    const cvSettings = localStorage.getItem(storageKey)
 
     if (cvSettings == null) {
       state.formSettings = {
@@ -36,7 +43,7 @@ export function useCvState() {
       patchId(state.formSettings)
       patchDisplayDate(state.formSettings)
     }
-    localStorage.setItem(locale, JSON.stringify(state.formSettings))
+    localStorage.setItem(storageKey, JSON.stringify(state.formSettings))
     state.isLoading = false
   }
 
@@ -119,14 +126,26 @@ export function useCvState() {
       ...cvSettingTemplate,
     }
     localStorage.setItem(
-      `cvSettings-${i18n.locale.value}`,
+      getStorageKey(),
       JSON.stringify(state.formSettings),
     )
   }
 
   function clearForm(): void {
     state.formSettings = cvSettingsEmptyTemplate
-    localStorage.removeItem(`cvSettings-${i18n.locale.value}`)
+    localStorage.removeItem(getStorageKey())
+  }
+
+  function saveAdaptedCv(adaptedCv: Cv): void {
+    const merged = {
+      ...cvSettingsEmptyTemplate,
+      ...adaptedCv,
+      profileImageDataUri: state.formSettings.profileImageDataUri,
+    }
+    patchId(merged)
+    patchDisplayDate(merged)
+    const key = `cvSettings-adapted-${i18n.locale.value}`
+    localStorage.setItem(key, JSON.stringify(merged))
   }
 
   function changeDisplaySection(e: {
@@ -171,6 +190,8 @@ export function useCvState() {
   return {
     ...toRefs(state),
     setUpCvSettings,
+    getStorageKey,
+    saveAdaptedCv,
     addSkill,
     removeSkill,
     addEntry,

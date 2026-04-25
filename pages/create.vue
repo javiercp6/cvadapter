@@ -9,7 +9,10 @@ const CVFY_IMAGE = 'https://cvfy.xyz/CvFy-no-border.png'
 
 const { setUpCvSettings } = useCvState()
 const route = useRoute()
+const localePath = useLocalePath()
 const { t, locale } = useI18n()
+
+const isAdaptedMode = computed(() => route.query.mode === 'adapted')
 
 const href = `https://cvfy.xyz${route.path}`
 
@@ -92,6 +95,10 @@ useHead({
 
 <template>
   <main class="font-app main">
+    <div v-if="isAdaptedMode" class="adapted-banner">
+      <span class="adapted-banner__text">{{ t('editing-adapted-cv') }}</span>
+      <NuxtLink :to="localePath('test2')" class="adapted-banner__link">{{ t('back-to-base-cv') }}</NuxtLink>
+    </div>
     <CvSettings class="basis-1/4 min-w-80" />
     <CvPreview class="basis-3/4" />
   </main>
@@ -102,6 +109,18 @@ useHead({
 @media screen and (min-width: 1024px) {
   .main {
     @apply flex h-screen overflow-hidden;
+  }
+}
+
+.adapted-banner {
+  @apply flex items-center justify-between px-6 py-2 bg-violet-50 border-b border-violet-100 text-sm;
+
+  &__text {
+    @apply text-violet-700 font-medium;
+  }
+
+  &__link {
+    @apply text-violet-600 hover:text-violet-800 underline text-xs font-medium;
   }
 }
 </style>

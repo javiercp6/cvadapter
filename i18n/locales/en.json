@@ -135,5 +135,7 @@
     "landing-feature-4-text":  "Edit and adjust AI suggestions on the fly while viewing the final result.",
     "landing-cta-final-title":  "Don\u0027t let a filter stop you.",
     "landing-cta-final-text":  "Get your interview today with the most advanced CV optimization tool on the market.",
-    "landing-cta-final-button":  "Create My Optimized CV"
+    "landing-cta-final-button":  "Create My Optimized CV",
+    "editing-adapted-cv":  "You are editing an adapted CV",
+    "back-to-base-cv":  "Back to base CV"
 }
