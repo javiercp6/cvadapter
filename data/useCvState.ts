@@ -24,7 +24,7 @@ export function useCvState() {
 
   function getStorageKey(): string {
     return route.query.mode === 'adapted'
-      ? `cvSettings-adapted-${i18n.locale.value}`
+      ? 'cvSettings-adapted'
       : `cvSettings-${i18n.locale.value}`
   }
 
@@ -144,7 +144,7 @@ export function useCvState() {
     }
     patchId(merged)
     patchDisplayDate(merged)
-    const key = `cvSettings-adapted-${i18n.locale.value}`
+    const key = 'cvSettings-adapted'
     localStorage.setItem(key, JSON.stringify(merged))
   }
 
