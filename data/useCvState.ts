@@ -43,6 +43,19 @@ export function useCvState() {
       patchId(state.formSettings)
       patchDisplayDate(state.formSettings)
     }
+
+    // In adapted mode, load profile image from base CV if missing
+    if (route.query.mode === 'adapted' && !state.formSettings.profileImageDataUri) {
+      const baseKey = `cvSettings-${i18n.locale.value}`
+      const baseCvSettings = localStorage.getItem(baseKey)
+      if (baseCvSettings) {
+        const baseObj = JSON.parse(baseCvSettings)
+        if (baseObj.profileImageDataUri) {
+          state.formSettings.profileImageDataUri = baseObj.profileImageDataUri
+        }
+      }
+    }
+
     localStorage.setItem(storageKey, JSON.stringify(state.formSettings))
     state.isLoading = false
   }
@@ -140,8 +153,10 @@ export function useCvState() {
     const merged = {
       ...cvSettingsEmptyTemplate,
       ...adaptedCv,
-      profileImageDataUri: state.formSettings.profileImageDataUri,
     }
+    // Remove profileImageDataUri from adapted CV to avoid duplicating
+    // large base64 images across 3 localStorage keys and exceeding quota
+    delete (merged as any).profileImageDataUri
     patchId(merged)
     patchDisplayDate(merged)
     const activeLocales = ['es', 'en', 'pt']
