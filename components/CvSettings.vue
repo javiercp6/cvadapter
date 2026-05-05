@@ -53,7 +53,10 @@ const formSettingsHref = computed(() => {
 })
 
 const availableLocales = computed(() => {
-  return i18n.localeCodes.value.filter((locale: any) => !locale.includes('-'))
+  const allowed = ['es', 'en', 'pt']
+  return i18n.localeCodes.value.filter(
+    (locale: any) => allowed.includes(locale) && !locale.includes('-')
+  )
 })
 
 function changeColor(color: string, darker: string): void {
