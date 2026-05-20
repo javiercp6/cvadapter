@@ -112,7 +112,7 @@ export default defineNuxtConfig({
 
   router: {
     options: {
-      linkActiveClass: 'form__btn--active',
+      linkActiveClass: 'router-link-active',
     },
   },
 

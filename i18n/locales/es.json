@@ -137,5 +137,7 @@
     "landing-cta-final-text":  "Consigue tu entrevista hoy con la herramienta de optimización de CV más avanzada del mercado.",
     "landing-cta-final-button":  "Crear mi CV Optimizado",
     "editing-adapted-cv":  "Estás editando un CV adaptado",
-    "back-to-base-cv":  "Volver al CV base"
+    "back-to-base-cv":  "Volver a adaptar CV",
+    "adapt-to-job":  "Adaptar CV al puesto",
+    "adapted-badge":  "ADAPTADO"
 }

@@ -1,4 +1,8 @@
 <script setup lang="ts">
+definePageMeta({
+  titleI18n: 'title-tag',
+  layout: 'landing',
+})
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const user = useSupabaseUser()
