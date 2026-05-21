@@ -143,5 +143,22 @@
     "app-my-plan":  "Mi Plan",
     "app-billing":  "Facturación",
     "app-change-password":  "Cambiar contraseña",
-    "app-sign-out":  "Cerrar sesión"
+    "app-sign-out":  "Cerrar sesión",
+    "billing-title":  "Facturación y Suscripción",
+    "billing-subtitle":  "Gestiona tu plan y detalles de pago.",
+    "current-plan":  "Plan Actual",
+    "cancels-on":  "Cancela el",
+    "renews-on":  "Renueva el",
+    "no-active-subscription":  "No tienes una suscripción activa.",
+    "view-plans":  "Ver Planes",
+    "manage-billing":  "Gestionar Facturación",
+    "manage-billing-desc":  "Actualiza método de pago, cambia de plan o cancela tu suscripción.",
+    "open-billing-portal":  "Abrir Portal de Facturación",
+    "portal-requires-subscription":  "Disponible cuando tengas una suscripción activa.",
+    "recent-invoices":  "Facturas Recientes",
+    "no-invoices":  "Aún no hay facturas.",
+    "date":  "Fecha",
+    "amount":  "Importe",
+    "status":  "Estado",
+    "view":  "Ver"
 }

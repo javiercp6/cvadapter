@@ -133,8 +133,13 @@ const formatDate = (timestamp: number | null) => {
               <div>
                 <p class="text-2xl font-bold text-slate-900">{{ subscription.productName || '—' }}</p>
                 <p class="text-sm text-slate-500 mt-1">
-                  {{ subscription.cancelAtPeriodEnd ? t('cancels-on') || 'Cancels on:' : t('renews-on') || 'Renews on:' }}
-                  {{ new Date(subscription.currentPeriodEnd!).toLocaleDateString() }}
+                  <template v-if="subscription.currentPeriodEnd">
+                    {{ subscription.cancelAtPeriodEnd ? (t('cancels-on') || 'Cancels on:') : (t('renews-on') || 'Renews on:') }}
+                    {{ new Date(subscription.currentPeriodEnd).toLocaleDateString() }}
+                  </template>
+                  <template v-else>
+                    {{ subscription.status }}
+                  </template>
                 </p>
               </div>
               <span class="px-3 py-1 bg-green-100 text-green-700 text-sm font-medium rounded-full">

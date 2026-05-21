@@ -32,7 +32,7 @@ export function useSubscription() {
           hasActiveSubscription: row.has_active_subscription,
           productName: row.product_name || null,
           status: row.status,
-          currentPeriodEnd: row.current_period_end,
+          currentPeriodEnd: row.current_period_end || null,
           cancelAtPeriodEnd: row.cancel_at_period_end,
         }
       } else {

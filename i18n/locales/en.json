@@ -143,5 +143,22 @@
     "app-my-plan":  "My Plan",
     "app-billing":  "Billing",
     "app-change-password":  "Change Password",
-    "app-sign-out":  "Sign Out"
+    "app-sign-out":  "Sign Out",
+    "billing-title":  "Billing & Subscription",
+    "billing-subtitle":  "Manage your plan and payment details.",
+    "current-plan":  "Current Plan",
+    "cancels-on":  "Cancels on",
+    "renews-on":  "Renews on",
+    "no-active-subscription":  "You don't have an active subscription.",
+    "view-plans":  "View Plans",
+    "manage-billing":  "Manage Billing",
+    "manage-billing-desc":  "Update payment method, change plan, or cancel subscription.",
+    "open-billing-portal":  "Open Billing Portal",
+    "portal-requires-subscription":  "Available once you have an active subscription.",
+    "recent-invoices":  "Recent Invoices",
+    "no-invoices":  "No invoices yet.",
+    "date":  "Date",
+    "amount":  "Amount",
+    "status":  "Status",
+    "view":  "View"
 }

@@ -143,5 +143,22 @@
     "app-my-plan":  "Meu Plano",
     "app-billing":  "Faturamento",
     "app-change-password":  "Alterar senha",
-    "app-sign-out":  "Sair"
+    "app-sign-out":  "Sair",
+    "billing-title":  "Faturamento e Assinatura",
+    "billing-subtitle":  "Gerencie seu plano e detalhes de pagamento.",
+    "current-plan":  "Plano Atual",
+    "cancels-on":  "Cancela em",
+    "renews-on":  "Renova em",
+    "no-active-subscription":  "Você não tem uma assinatura ativa.",
+    "view-plans":  "Ver Planos",
+    "manage-billing":  "Gerenciar Faturamento",
+    "manage-billing-desc":  "Atualize método de pagamento, mude de plano ou cancele sua assinatura.",
+    "open-billing-portal":  "Abrir Portal de Faturamento",
+    "portal-requires-subscription":  "Disponível quando você tiver uma assinatura ativa.",
+    "recent-invoices":  "Faturas Recentes",
+    "no-invoices":  "Nenhuma fatura ainda.",
+    "date":  "Data",
+    "amount":  "Valor",
+    "status":  "Status",
+    "view":  "Ver"
 }
