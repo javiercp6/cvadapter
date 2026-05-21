@@ -60,6 +60,8 @@ const { formSettings } = useCvState()
   :deep(&__tag) {
     @apply px-2 py-1 rounded text-white text-xs/normal;
     background-color: var(--primary);
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
   }
 
   &__bar {
