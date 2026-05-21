@@ -139,5 +139,9 @@
     "editing-adapted-cv":  "Você está editando um CV adaptado",
     "back-to-base-cv":  "Voltar a adaptar CV",
     "adapt-to-job":  "Adaptar CV ao cargo",
-    "adapted-badge":  "ADAPTADO"
+    "adapted-badge":  "ADAPTADO",
+    "app-my-plan":  "Meu Plano",
+    "app-billing":  "Faturamento",
+    "app-change-password":  "Alterar senha",
+    "app-sign-out":  "Sair"
 }

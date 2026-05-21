@@ -5,9 +5,9 @@ const user = useSupabaseUser()
 const supabase = useSupabaseClient()
 
 definePageMeta({
+  layout: 'app',
   middleware: 'require-subscription',
 })
-
 const isLoadingPortal = ref(false)
 const portalError = ref<string | null>(null)
 const invoices = ref<any[]>([])

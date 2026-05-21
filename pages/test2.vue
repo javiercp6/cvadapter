@@ -2,6 +2,10 @@
 import { useCvState } from '~/data/useCvState'
 
 const { formSettings, setUpCvSettings, isLoading: isCvLoading, saveAdaptedCv } = useCvState()
+
+definePageMeta({
+  layout: 'app',
+})
 const localePath = useLocalePath()
 const { t, locale } = useI18n()
 

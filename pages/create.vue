@@ -2,6 +2,7 @@
 import { useCvState } from '~/data/useCvState'
 
 definePageMeta({
+  layout: 'app',
   middleware: 'require-subscription',
 })
 
