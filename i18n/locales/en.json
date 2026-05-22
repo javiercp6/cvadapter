@@ -160,5 +160,7 @@
     "date":  "Date",
     "amount":  "Amount",
     "status":  "Status",
-    "view":  "View"
+    "view":  "View",
+    "nav-cv-editor":  "CV Editor",
+    "nav-ai-adapter":  "AI Adapter"
 }

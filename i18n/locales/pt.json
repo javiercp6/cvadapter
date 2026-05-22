@@ -160,5 +160,7 @@
     "date":  "Data",
     "amount":  "Valor",
     "status":  "Status",
-    "view":  "Ver"
+    "view":  "Ver",
+    "nav-cv-editor":  "Editor CV",
+    "nav-ai-adapter":  "Adaptador IA"
 }

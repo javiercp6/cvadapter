@@ -160,5 +160,7 @@
     "date":  "Fecha",
     "amount":  "Importe",
     "status":  "Estado",
-    "view":  "Ver"
+    "view":  "Ver",
+    "nav-cv-editor":  "Editor CV",
+    "nav-ai-adapter":  "Adaptador IA"
 }
