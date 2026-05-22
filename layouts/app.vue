@@ -52,7 +52,7 @@ useHead({
 <template>
   <div class="min-h-screen bg-slate-50 font-sans text-slate-800" @click="closeMenus">
     <!-- Top Bar -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50 h-12">
+    <nav class="bg-white shadow-sm sticky top-0 z-50 h-12 print:hidden">
       <div class="flex items-center h-full px-4 relative">
         <!-- Left: Hamburger + Logo -->
         <div class="flex items-center gap-3">
@@ -199,7 +199,7 @@ useHead({
     </nav>
 
     <!-- Main Content -->
-    <main>
+    <main class="print:p-0 print:m-0 print:bg-white print:shadow-none print:min-h-0">
       <slot />
     </main>
   </div>
