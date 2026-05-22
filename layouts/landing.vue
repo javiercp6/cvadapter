@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-const CVFY_IMAGE = 'https://cvfy.xyz/CvFy-no-border.png'
+const CVFY_IMAGE = 'https://adaptercv.com/AdapterCV-no-border.png'
 
 const { locale, t } = useI18n()
 const route = useRoute()
 const localePath = useLocalePath()
 const user = useSupabaseUser()
 const supabase = useSupabaseClient()
-const HREF = `https://cvfy.xyz${route.path}`
+const HREF = `https://adaptercv.com${route.path}`
 const GITHUB = 'https://github.com/claudiabdm/cvfy'
 
 const signOut = async () => {
@@ -83,7 +83,7 @@ useHead({
         <div class="grid grid-cols-3 items-center h-full">
           <!-- Logo -->
           <NuxtLink :to="localePath('/')" class="text-2xl font-black tracking-tight text-[#191c1e]">
-            CVFY
+            ADAPTERCV
           </NuxtLink>
 
           <!-- Nav Links (centered) -->
@@ -134,8 +134,8 @@ useHead({
     <footer class="bg-[#f2f4f6] py-12 px-6">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
         <div class="flex flex-col gap-4">
-          <div class="text-xl font-bold text-[#191c1e]">CVFY</div>
-          <p class="text-slate-600 text-sm">© 2024 CVFY. {{ $t('footer-rights') }}</p>
+          <div class="text-xl font-bold text-[#191c1e]">ADAPTERCV</div>
+          <p class="text-slate-600 text-sm">© 2024 ADAPTERCV. {{ $t('footer-rights') }}</p>
         </div>
         <div class="flex flex-col gap-4">
           <p class="font-bold text-[#191c1e] uppercase text-xs tracking-wider">{{ $t('footer-product') }}</p>

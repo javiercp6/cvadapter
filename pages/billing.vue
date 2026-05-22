@@ -20,7 +20,7 @@ onMounted(async () => {
 
 useHead({
   htmlAttrs: { lang: locale.value }, // ✅ Fix Bug 2: usar .value para obtener el string
-  title: t('billing-title') || 'CvFy - Billing',
+  title: t('billing-title') || 'AdapterCV - Billing',
 })
 
 async function fetchInvoices() {

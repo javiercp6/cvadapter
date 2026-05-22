@@ -33,7 +33,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           githubToken: ${{ secrets.GITHUB_TOKEN }}
-          projectName: cvfy
+          projectName: adapter-cv
           deploymentName: Preview
           wranglerVersion: '3'
           directory: ${{ steps.preview-build-artifact.outputs.download-path }}

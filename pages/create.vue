@@ -6,14 +6,14 @@ definePageMeta({
   middleware: 'require-subscription',
 })
 
-const CVFY_IMAGE = 'https://cvfy.xyz/CvFy-no-border.png'
+const CVFY_IMAGE = 'https://adaptercv.com/AdapterCV-no-border.png'
 
 const { setUpCvSettings } = useCvState()
 const route = useRoute()
 const localePath = useLocalePath()
 const { t, locale } = useI18n()
 
-const href = `https://cvfy.xyz${route.path}`
+const href = `https://adaptercv.com${route.path}`
 
 onMounted(() => {
   setUpCvSettings()

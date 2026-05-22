@@ -1,15 +1,15 @@
-# CvFy
+# AdapterCV
 
 [![MadeWithVueJs.com shield](https://madewithvuejs.com/storage/repo-shields/3280-shield.svg)](https://madewithvuejs.com/p/cvfy/shield-link)
 
-![CvFy](/public/CvFy.png)
+![AdapterCV](/public/AdapterCV.png)
 
-CvFy is an open-sourced multilingual app that makes CV creation faster and easier.
+AdapterCV is an open-sourced multilingual app that makes CV creation faster and easier.
 
 > [!NOTE]
 > PDF creation is client-side only, so results may differ among browsers.
 
-Demo: https://cvfy.xyz/
+Demo: https://adaptercv.com/
 
 ## Features
 - Multilingual

@@ -68,7 +68,7 @@ useHead({
 
           <!-- Logo -->
           <NuxtLink :to="localePath('/')" class="text-lg font-bold text-slate-900 tracking-tight">
-            CVFY
+            ADAPTERCV
           </NuxtLink>
         </div>
 

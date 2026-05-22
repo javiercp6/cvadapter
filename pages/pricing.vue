@@ -18,7 +18,7 @@ onMounted(async () => {
 
 useHead({
   htmlAttrs: { lang: locale },
-  title: t('pricing-title') || 'CvFy - Pricing',
+  title: t('pricing-title') || 'AdapterCV - Pricing',
 })
 
 const formatPrice = (amount: number, currency: string) => {

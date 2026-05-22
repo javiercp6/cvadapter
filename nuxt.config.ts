@@ -125,8 +125,8 @@ export default defineNuxtConfig({
       config: true,
     },
     manifest: {
-      name: 'Cvfy',
-      short_name: 'CvFy',
+      name: 'AdapterCV',
+      short_name: 'AdapterCV',
       lang: 'en',
       scope: '/',
       display: 'standalone',
