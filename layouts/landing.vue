@@ -135,18 +135,24 @@ useHead({
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
         <div class="flex flex-col gap-4">
           <div class="text-xl font-bold text-[#191c1e]">ADAPTERCV</div>
-          <p class="text-slate-600 text-sm">© 2024 ADAPTERCV. {{ $t('footer-rights') }}</p>
+          <p class="text-slate-600 text-sm">© {{ new Date().getFullYear() }} ADAPTERCV.</p>
         </div>
         <div class="flex flex-col gap-4">
           <p class="font-bold text-[#191c1e] uppercase text-xs tracking-wider">{{ $t('footer-product') }}</p>
           <NuxtLink :to="localePath('/pricing')" class="text-slate-600 text-sm hover:text-[#316bf3] transition-all opacity-80 hover:opacity-100">
             {{ $t('nav-pricing') }}
           </NuxtLink>
+          <NuxtLink :to="localePath('/test2')" class="text-slate-600 text-sm hover:text-[#316bf3] transition-all opacity-80 hover:opacity-100">
+            {{ $t('nav-ai-adapter') }}
+          </NuxtLink>
+          <NuxtLink :to="localePath('/create')" class="text-slate-600 text-sm hover:text-[#316bf3] transition-all opacity-80 hover:opacity-100">
+            {{ $t('nav-cv-editor') }}
+          </NuxtLink>
         </div>
         <div class="flex flex-col gap-4">
           <p class="font-bold text-[#191c1e] uppercase text-xs tracking-wider">{{ $t('footer-support') }}</p>
-          <a href="https://github.com/claudiabdm/cvfy/issues" class="text-slate-600 text-sm hover:text-[#316bf3] transition-all opacity-80 hover:opacity-100" target="_blank">
-            {{ $t('footer-help') }}
+          <a href="mailto:soporte@adaptercv.com" class="text-slate-600 text-sm hover:text-[#316bf3] transition-all opacity-80 hover:opacity-100">
+            {{ $t('footer-contact') }}
           </a>
         </div>
         <div class="flex flex-col gap-4">
