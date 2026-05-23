@@ -51,10 +51,10 @@ export const termsContent: Record<string, string> = {
 <p>Nos reservamos el derecho de modificar estos términos y condiciones para adaptarlos a novedades legislativas o nuevas funcionalidades del servicio. Los cambios significativos se notificarán a los usuarios mediante un aviso destacado en la plataforma o a través de un correo electrónico, con al menos 15 días de antelación a su entrada en vigor.</p>
 
 <h2>11. LEGISLACIÓN Y JURISDICCIÓN</h2>
-<p>Estos términos se rigen por la legislación <strong>española</strong>. Para cualquier controversia que pudiera derivarse del uso del servicio, las partes se someten a los <strong>juzgados y tribunales de [Tu Ciudad]</strong>, renunciando expresamente a cualquier otro fuero que pudiera corresponderles. Para más información, consulte nuestro <strong>Aviso Legal</strong>.</p>
+<p>Estos términos se rigen por la legislación <strong>española</strong>. Para cualquier controversia que pudiera derivarse del uso del servicio, las partes se someten a los <strong>juzgados y tribunales de Madrid</strong>, renunciando expresamente a cualquier otro fuero que pudiera corresponderles. Para más información, consulte nuestro <strong>Aviso Legal</strong>.</p>
 
 <h2>12. CONTACTO</h2>
-<p>Para cualquier consulta sobre estos términos y condiciones, puede contactarnos a través de: <strong>soporte@adaptercv.com</strong>.</p>
+<p>Para cualquier consulta sobre estos términos y condiciones, puede contactarnos a través de: <strong>javierceballo996@gmail.com</strong>.</p>
 `,
   en: `
 <h1>TERMS AND CONDITIONS OF SERVICE</h1>
@@ -108,10 +108,10 @@ export const termsContent: Record<string, string> = {
 <p>We reserve the right to modify these terms and conditions to adapt to legislative changes or new service features. Significant changes will be notified to users through a prominent notice on the platform or via email, at least 15 days before they take effect.</p>
 
 <h2>11. APPLICABLE LAW AND JURISDICTION</h2>
-<p>These terms are governed by <strong>Spanish</strong> law. For any dispute arising from the use of the service, the parties submit to the <strong>courts and tribunals of [Your City]</strong>, expressly waiving any other jurisdiction that may apply. For more information, please consult our <strong>Legal Notice</strong>.</p>
+<p>These terms are governed by <strong>Spanish</strong> law. For any dispute arising from the use of the service, the parties submit to the <strong>courts and tribunals of Madrid</strong>, expressly waiving any other jurisdiction that may apply. For more information, please consult our <strong>Legal Notice</strong>.</p>
 
 <h2>12. CONTACT</h2>
-<p>For any questions regarding these terms and conditions, you can contact us at: <strong>soporte@adaptercv.com</strong>.</p>
+<p>For any questions regarding these terms and conditions, you can contact us at: <strong>javierceballo996@gmail.com</strong>.</p>
 `,
   pt: `
 <h1>TERMOS E CONDIÇÕES DE SERVIÇO</h1>
@@ -165,9 +165,9 @@ export const termsContent: Record<string, string> = {
 <p>Reservamo-nos o direito de modificar estes termos e condições para nos adaptarmos a novidades legislativas ou novas funcionalidades do serviço. As alterações significativas serão notificadas aos utilizadores através de um aviso destacado na plataforma ou por e-mail, com pelo menos 15 dias de antecedência antes da sua entrada em vigor.</p>
 
 <h2>11. LEGISLAÇÃO E JURISDIÇÃO</h2>
-<p>Estes termos regem-se pela legislação <strong>espanhola</strong>. Para qualquer controvérsia que possa derivar da utilização do serviço, as partes submetem-se aos <strong>tribunais de [Sua Cidade]</strong>, renunciando expressamente a qualquer outro foro que possa corresponder-lhes. Para mais informações, consulte o nosso <strong>Aviso Legal</strong>.</p>
+<p>Estes termos regem-se pela legislação <strong>espanhola</strong>. Para qualquer controvérsia que possa derivar da utilização do serviço, as partes submetem-se aos <strong>tribunais de Madrid</strong>, renunciando expressamente a qualquer outro foro que possa corresponder-lhes. Para mais informações, consulte o nosso <strong>Aviso Legal</strong>.</p>
 
 <h2>12. CONTACTO</h2>
-<p>Para qualquer questão sobre estes termos e condições, pode contactar-nos através de: <strong>soporte@adaptercv.com</strong>.</p>
+<p>Para qualquer questão sobre estes termos e condições, pode contactar-nos através de: <strong>javierceballo996@gmail.com</strong>.</p>
 `,
 }

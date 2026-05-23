@@ -151,7 +151,7 @@ useHead({
         </div>
         <div class="flex flex-col gap-4">
           <p class="font-bold text-[#191c1e] uppercase text-xs tracking-wider">{{ $t('footer-support') }}</p>
-          <a href="mailto:soporte@adaptercv.com" class="text-slate-600 text-sm hover:text-[#316bf3] transition-all opacity-80 hover:opacity-100">
+          <a href="mailto:javierceballo996@gmail.com" class="text-slate-600 text-sm hover:text-[#316bf3] transition-all opacity-80 hover:opacity-100">
             {{ $t('footer-contact') }}
           </a>
         </div>

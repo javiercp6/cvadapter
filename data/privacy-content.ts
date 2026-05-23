@@ -3,7 +3,7 @@ export const privacyContent: Record<string, string> = {
 <h1>POLÍTICA DE PRIVACIDAD Y PROTECCIÓN DE DATOS</h1>
 
 <h2>1. RESPONSABLE DEL TRATAMIENTO</h2>
-<p>El responsable del tratamiento de sus datos personales es <strong>[Tu Nombre y Apellidos Completos]</strong>, con NIF <strong>[Tu DNI]</strong> y domicilio en <strong>[Tu Dirección Fiscal]</strong>. Correo electrónico de contacto: <strong>soporte@adaptercv.com</strong>.</p>
+<p>El responsable del tratamiento de sus datos personales es <strong>Javier Ceballo Perez</strong> y domicilio en <strong>Calle Hermanos García Noblejas 125, Madrid España</strong>. Correo electrónico de contacto: <strong>javierceballo996@gmail.com</strong>.</p>
 
 <h2>2. DATOS QUE RECOPILAMOS</h2>
 <p>Para el correcto funcionamiento del servicio, recopilamos:</p>
@@ -37,7 +37,7 @@ export const privacyContent: Record<string, string> = {
 <p>Los datos personales se conservarán mientras se mantenga la relación comercial o hasta que solicites su supresión. El usuario tiene total control y puede eliminar de forma definitiva sus datos e historial de currículums guardados en cualquier momento desde su panel de control privado.</p>
 
 <h2>9. DERECHOS DEL USUARIO</h2>
-<p>Tienes derecho a acceder, rectificar, limitar, oponerte o suprimir tus datos personales (derechos ARCO/RGPD). Para ejercerlos, puedes enviar un correo electrónico a <strong>soporte@adaptercv.com</strong>, adjuntando una copia de tu documento de identidad para verificar tu titularidad. Asimismo, tienes derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD) si consideras que tus derechos han sido vulnerados.</p>
+<p>Tienes derecho a acceder, rectificar, limitar, oponerte o suprimir tus datos personales (derechos ARCO/RGPD). Para ejercerlos, puedes enviar un correo electrónico a <strong>javierceballo996@gmail.com</strong>, adjuntando una copia de tu documento de identidad para verificar tu titularidad. Asimismo, tienes derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD) si consideras que tus derechos han sido vulnerados.</p>
 
 <h2>10. CAMBIOS EN LA POLÍTICA DE PRIVACIDAD</h2>
 <p>Nos reservamos el derecho a modificar esta política para adaptarla a novedades legislativas o nuevas funciones del SaaS. En caso de cambios significativos que afecten a tus derechos, te lo notificaremos mediante un aviso destacado en la plataforma o a través de un correo electrónico antes de que los cambios entren en vigor.</p>
@@ -49,7 +49,7 @@ export const privacyContent: Record<string, string> = {
 <h1>PRIVACY POLICY AND DATA PROTECTION</h1>
 
 <h2>1. DATA CONTROLLER</h2>
-<p>The data controller of your personal data is <strong>[Your Full Name]</strong>, with Tax ID <strong>[Your Tax ID]</strong> and registered address at <strong>[Your Tax Address]</strong>. Contact email: <strong>soporte@adaptercv.com</strong>.</p>
+<p>The data controller of your personal data is <strong>Javier Ceballo Perez</strong> and registered address at <strong>Calle Hermanos García Noblejas 125, Madrid España</strong>. Contact email: <strong>javierceballo996@gmail.com</strong>.</p>
 
 <h2>2. DATA WE COLLECT</h2>
 <p>For the proper functioning of the service, we collect:</p>
@@ -83,7 +83,7 @@ export const privacyContent: Record<string, string> = {
 <p>Personal data will be retained for as long as the business relationship continues or until you request its deletion. The user has full control and can permanently delete their data and saved CV history at any time from their private control panel.</p>
 
 <h2>9. USER RIGHTS</h2>
-<p>You have the right to access, rectify, restrict, object to, or delete your personal data (GDPR rights). To exercise these rights, you can send an email to <strong>soporte@adaptercv.com</strong>, attaching a copy of your identification document to verify your identity. You also have the right to lodge a complaint with the Spanish Data Protection Agency (AEPD) if you believe your rights have been violated.</p>
+<p>You have the right to access, rectify, restrict, object to, or delete your personal data (GDPR rights). To exercise these rights, you can send an email to <strong>javierceballo996@gmail.com</strong>, attaching a copy of your identification document to verify your identity. You also have the right to lodge a complaint with the Spanish Data Protection Agency (AEPD) if you believe your rights have been violated.</p>
 
 <h2>10. CHANGES TO THIS PRIVACY POLICY</h2>
 <p>We reserve the right to modify this policy to adapt to legislative changes or new SaaS features. In the event of significant changes that affect your rights, we will notify you through a prominent notice on the platform or via email before the changes take effect.</p>
@@ -95,7 +95,7 @@ export const privacyContent: Record<string, string> = {
 <h1>POLÍTICA DE PRIVACIDADE E PROTEÇÃO DE DADOS</h1>
 
 <h2>1. RESPONSÁVEL PELO TRATAMENTO</h2>
-<p>O responsável pelo tratamento dos seus dados pessoais é <strong>[Seu Nome Completo]</strong>, com NIF <strong>[Seu NIF]</strong> e domicílio em <strong>[Seu Endereço Fiscal]</strong>. E-mail de contato: <strong>soporte@adaptercv.com</strong>.</p>
+<p>O responsável pelo tratamento dos seus dados pessoais é <strong>Javier Ceballo Perez</strong> e domicílio em <strong>Calle Hermanos García Noblejas 125, Madrid España</strong>. E-mail de contato: <strong>javierceballo996@gmail.com</strong>.</p>
 
 <h2>2. DADOS QUE RECOLHEMOS</h2>
 <p>Para o correto funcionamento do serviço, recolhemos:</p>
@@ -129,7 +129,7 @@ export const privacyContent: Record<string, string> = {
 <p>Os dados pessoais serão conservados enquanto se mantiver a relação comercial ou até que solicite a sua supressão. O utilizador tem total controlo e pode eliminar de forma definitiva os seus dados e histórico de currículos guardados em qualquer momento a partir do seu painel de controlo privado.</p>
 
 <h2>9. DIREITOS DO UTILIZADOR</h2>
-<p>Tem direito a aceder, retificar, limitar, opor-se ou suprimir os seus dados pessoais (direitos ARCO/RGPD). Para exercer estes direitos, pode enviar um e-mail para <strong>soporte@adaptercv.com</strong>, anexando uma cópia do seu documento de identificação para verificar a sua titularidade. Tem também direito a apresentar uma reclamação à Agência Espanhola de Proteção de Dados (AEPD) se considerar que os seus direitos foram violados.</p>
+<p>Tem direito a aceder, retificar, limitar, opor-se ou suprimir os seus dados pessoais (direitos ARCO/RGPD). Para exercer estes direitos, pode enviar um e-mail para <strong>javierceballo996@gmail.com</strong>, anexando uma cópia do seu documento de identificação para verificar a sua titularidade. Tem também direito a apresentar uma reclamação à Agência Espanhola de Proteção de Dados (AEPD) se considerar que os seus direitos foram violados.</p>
 
 <h2>10. ALTERAÇÕES A ESTA POLÍTICA DE PRIVACIDADE</h2>
 <p>Reservamo-nos o direito de modificar esta política para a adaptar a novidades legislativas ou novas funcionalidades do SaaS. Em caso de alterações significativas que afetem os seus direitos, notificá-lo-emos através de um aviso destacado na plataforma ou por e-mail antes de as alterações entrarem em vigor.</p>

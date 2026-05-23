@@ -5,10 +5,9 @@ export const legalContent: Record<string, string> = {
 <h2>1. DATOS IDENTIFICATIVOS</h2>
 <p>En cumplimiento con el deber de información recogido en artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico (LSSI-CE), se reflejan los siguientes datos del titular:</p>
 <ul>
-  <li><strong>Titular:</strong> [Tu Nombre y Apellidos Completos]</li>
-  <li><strong>NIF/DNI:</strong> [Tu DNI o NIF de Autónomo]</li>
-  <li><strong>Domicilio fiscal:</strong> [Tu Dirección Fiscal o de Oficina Virtual]</li>
-  <li><strong>Correo electrónico de contacto:</strong> soporte@adaptercv.com</li>
+  <li><strong>Titular:</strong> Javier Ceballo Perez</li>
+  <li><strong>Domicilio fiscal:</strong> Calle Hermanos García Noblejas 125, Madrid España</li>
+  <li><strong>Correo electrónico de contacto:</strong> javierceballo996@gmail.com</li>
   <li><strong>Sitio Web:</strong> https://adaptercv.com (y/o https://cvadapter.pages.dev)</li>
 </ul>
 
@@ -41,7 +40,7 @@ export const legalContent: Record<string, string> = {
 </ul>
 
 <h2>7. LEGISLACIÓN APLICABLE Y JURISDICCIÓN</h2>
-<p>Las presentes condiciones se rigen por la legislación <strong>española</strong>. Para cualquier controversia que pudiera derivarse del acceso o uso del sitio web, las partes se someten a los <strong>juzgados y tribunales de [Tu Ciudad]</strong>, renunciando expresamente a cualquier otro fuero que pudiera corresponderles.</p>
+<p>Las presentes condiciones se rigen por la legislación <strong>española</strong>. Para cualquier controversia que pudiera derivarse del acceso o uso del sitio web, las partes se someten a los <strong>juzgados y tribunales de Madrid</strong>, renunciando expresamente a cualquier otro fuero que pudiera corresponderles.</p>
 `,
   en: `
 <h1>LEGAL NOTICE AND TERMS OF USE</h1>
@@ -49,10 +48,9 @@ export const legalContent: Record<string, string> = {
 <h2>1. IDENTIFYING DATA</h2>
 <p>In compliance with the duty of information set forth in Article 10 of Law 34/2002, of July 11, on Information Society Services and Electronic Commerce (LSSI-CE), the following data of the owner is provided:</p>
 <ul>
-  <li><strong>Owner:</strong> [Your Full Name]</li>
-  <li><strong>Tax ID / DNI:</strong> [Your Tax ID or DNI]</li>
-  <li><strong>Tax address:</strong> [Your Tax Address or Virtual Office]</li>
-  <li><strong>Contact email:</strong> soporte@adaptercv.com</li>
+  <li><strong>Owner:</strong> Javier Ceballo Perez</li>
+  <li><strong>Tax address:</strong> Calle Hermanos García Noblejas 125, Madrid España</li>
+  <li><strong>Contact email:</strong> javierceballo996@gmail.com</li>
   <li><strong>Website:</strong> https://adaptercv.com (and/or https://cvadapter.pages.dev)</li>
 </ul>
 
@@ -85,7 +83,7 @@ export const legalContent: Record<string, string> = {
 </ul>
 
 <h2>7. APPLICABLE LAW AND JURISDICTION</h2>
-<p>These conditions are governed by <strong>Spanish</strong> law. For any dispute that may arise from access or use of the website, the parties submit to the <strong>courts and tribunals of [Your City]</strong>, expressly waiving any other jurisdiction that may correspond to them.</p>
+<p>These conditions are governed by <strong>Spanish</strong> law. For any dispute that may arise from access or use of the website, the parties submit to the <strong>courts and tribunals of Madrid</strong>, expressly waiving any other jurisdiction that may correspond to them.</p>
 `,
   pt: `
 <h1>AVISO LEGAL E CONDIÇÕES DE USO</h1>
@@ -93,10 +91,9 @@ export const legalContent: Record<string, string> = {
 <h2>1. DADOS DE IDENTIFICAÇÃO</h2>
 <p>Em cumprimento com o dever de informação estabelecido no artigo 10 da Lei 34/2002, de 11 de julho, de Serviços da Sociedade da Informação e Comércio Eletrónico (LSSI-CE), refletem-se os seguintes dados do titular:</p>
 <ul>
-  <li><strong>Titular:</strong> [Seu Nome Completo]</li>
-  <li><strong>NIF/DNI:</strong> [Seu NIF ou DNI]</li>
-  <li><strong>Domicílio fiscal:</strong> [Seu Endereço Fiscal ou Escritório Virtual]</li>
-  <li><strong>E-mail de contato:</strong> soporte@adaptercv.com</li>
+  <li><strong>Titular:</strong> Javier Ceballo Perez</li>
+  <li><strong>Domicílio fiscal:</strong> Calle Hermanos García Noblejas 125, Madrid España</li>
+  <li><strong>E-mail de contato:</strong> javierceballo996@gmail.com</li>
   <li><strong>Site:</strong> https://adaptercv.com (e/ou https://cvadapter.pages.dev)</li>
 </ul>
 
@@ -129,6 +126,6 @@ export const legalContent: Record<string, string> = {
 </ul>
 
 <h2>7. LEGISLAÇÃO APLICÁVEL E JURISDIÇÃO</h2>
-<p>As presentes condições regem-se pela legislação <strong>espanhola</strong>. Para qualquer controvérsia que possa derivar do acesso ou uso do site, as partes submetem-se aos <strong>tribunais de [Sua Cidade]</strong>, renunciando expressamente a qualquer outro foro que possa corresponder-lhes.</p>
+<p>As presentes condições regem-se pela legislação <strong>espanhola</strong>. Para qualquer controvérsia que possa derivar do acesso ou uso do site, as partes submetem-se aos <strong>tribunais de Madrid</strong>, renunciando expressamente a qualquer outro foro que possa corresponder-lhes.</p>
 `,
 }
