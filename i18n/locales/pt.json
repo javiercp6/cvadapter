@@ -161,6 +161,11 @@
     "amount":  "Valor",
     "status":  "Status",
     "view":  "Ver",
+    "footer-legal-notice":  "Aviso Legal",
+    "legal-title":  "Aviso Legal",
+    "legal-updated":  "Última atualização:",
+    "legal-placeholder":  "Esta página está em elaboração.",
+    "cookies-title":  "Política de Cookies",
     "nav-cv-editor":  "Editor CV",
     "nav-ai-adapter":  "Adaptador IA"
 }

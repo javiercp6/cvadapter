@@ -161,6 +161,11 @@
     "amount":  "Importe",
     "status":  "Estado",
     "view":  "Ver",
+    "footer-legal-notice":  "Aviso Legal",
+    "legal-title":  "Aviso Legal",
+    "legal-updated":  "Última actualización:",
+    "legal-placeholder":  "Esta página está en elaboración.",
+    "cookies-title":  "Política de Cookies",
     "nav-cv-editor":  "Editor CV",
     "nav-ai-adapter":  "Adaptador IA"
 }

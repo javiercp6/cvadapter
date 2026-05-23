@@ -151,11 +151,17 @@ useHead({
         </div>
         <div class="flex flex-col gap-4">
           <p class="font-bold text-[#191c1e] uppercase text-xs tracking-wider">{{ $t('footer-legal') }}</p>
+          <NuxtLink :to="localePath('/legal')" class="text-slate-600 text-sm hover:text-[#316bf3] transition-all opacity-80 hover:opacity-100">
+            {{ $t('footer-legal-notice') }}
+          </NuxtLink>
           <NuxtLink :to="localePath('/privacy')" class="text-slate-600 text-sm hover:text-[#316bf3] transition-all opacity-80 hover:opacity-100">
             {{ $t('footer-privacy') }}
           </NuxtLink>
           <NuxtLink :to="localePath('/terms')" class="text-slate-600 text-sm hover:text-[#316bf3] transition-all opacity-80 hover:opacity-100">
             {{ $t('footer-terms') }}
+          </NuxtLink>
+          <NuxtLink :to="localePath('/cookies')" class="text-slate-600 text-sm hover:text-[#316bf3] transition-all opacity-80 hover:opacity-100">
+            {{ $t('cookies-title') }}
           </NuxtLink>
         </div>
       </div>

@@ -161,6 +161,11 @@
     "amount":  "Amount",
     "status":  "Status",
     "view":  "View",
+    "footer-legal-notice":  "Legal Notice",
+    "legal-title":  "Legal Notice",
+    "legal-updated":  "Last updated:",
+    "legal-placeholder":  "This page is being drafted.",
+    "cookies-title":  "Cookie Policy",
     "nav-cv-editor":  "CV Editor",
     "nav-ai-adapter":  "AI Adapter"
 }
