@@ -9,14 +9,10 @@ export function usePlanUsage() {
   const productName = ref<string | null>(null)
 
   async function fetchUsage() {
-    if (!user.value?.id) {
-      isLoading.value = false
-      return
-    }
     isLoading.value = true
 
     try {
-      // 1. Obtener plan desde suscripción
+      // 1. Obtener plan desde suscripción (no depende de user.value)
       const { data: subData } = await supabase.rpc('get_user_subscription_status')
       const sub = subData?.[0]
 
@@ -42,16 +38,18 @@ export function usePlanUsage() {
         productName.value = null
       }
 
-      // 2. Obtener contador del mes actual
-      const month = new Date().toISOString().slice(0, 7) // YYYY-MM
-      const { data: usageData } = await supabase
-        .from('user_monthly_usage')
-        .select('adaptations_count')
-        .eq('user_id', user.value.id)
-        .eq('usage_month', month)
-        .maybeSingle()
+      // 2. Obtener contador del mes actual (solo si user ya cargó)
+      if (user.value?.id) {
+        const month = new Date().toISOString().slice(0, 7) // YYYY-MM
+        const { data: usageData } = await supabase
+          .from('user_monthly_usage')
+          .select('adaptations_count')
+          .eq('user_id', user.value.id)
+          .eq('usage_month', month)
+          .maybeSingle()
 
-      current.value = usageData?.adaptations_count || 0
+        current.value = usageData?.adaptations_count || 0
+      }
     }
     catch (e) {
       console.error('usePlanUsage error:', e)
@@ -60,6 +58,11 @@ export function usePlanUsage() {
       isLoading.value = false
     }
   }
+
+  // Re-fetch automáticamente cuando el usuario de Supabase finalmente cargue
+  watch(user, (newUser) => {
+    if (newUser?.id) fetchUsage()
+  }, { immediate: true })
 
   const remaining = computed(() => Math.max(0, limit.value - current.value))
   const canAdapt = computed(() => remaining.value > 0)

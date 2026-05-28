@@ -22,6 +22,11 @@ onMounted(() => {
   fetchUsage()
 })
 
+// Refrescar contador al volver desde /create (SPA navigation)
+onActivated(() => {
+  fetchUsage()
+})
+
 useHead({
   htmlAttrs: {
     lang: locale,
@@ -56,6 +61,7 @@ const procesarCV = async () => {
 
     if (response && response.success) {
       saveAdaptedCv(response.resultado)
+      await fetchUsage() // refrescar contador tras adaptar exitosamente
       navigateTo(localePath({ name: 'create', query: { mode: 'adapted' } }))
     }
     else {
