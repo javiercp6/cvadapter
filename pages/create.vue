@@ -3,7 +3,7 @@ import { useCvState } from '~/data/useCvState'
 
 definePageMeta({
   layout: 'app',
-  middleware: 'require-subscription',
+  middleware: 'require-auth',
 })
 
 const CVFY_IMAGE = 'https://adaptercv.com/AdapterCV-no-border.png'

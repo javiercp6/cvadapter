@@ -1,4 +1,4 @@
-import { serverSupabaseUser } from '#supabase/server'
+import { serverSupabaseUser, serverSupabaseClient } from '#supabase/server'
 
 export default defineEventHandler(async (event) => {
   const user = await serverSupabaseUser(event)
@@ -12,6 +12,27 @@ export default defineEventHandler(async (event) => {
 
   if (!cv_json || !oferta_trabajo) {
     throw createError({ statusCode: 400, statusMessage: 'Faltan datos' });
+  }
+
+  // ==========================================================
+  // CHECK DE LÍMITE MENSUAL DE ADAPTACIONES
+  // ==========================================================
+  const { limit } = await resolveUserPlan(event)
+  const supabase = await serverSupabaseClient(event)
+
+  const { data: newCount, error: usageError } = await supabase.rpc(
+    'check_and_increment_usage',
+    {
+      p_user_id: user.id,
+      p_limit: limit,
+    }
+  )
+
+  if (usageError || !newCount) {
+    throw createError({
+      statusCode: 429,
+      statusMessage: 'monthly_limit_reached',
+    })
   }
 
   const env = event.context.cloudflare?.env;

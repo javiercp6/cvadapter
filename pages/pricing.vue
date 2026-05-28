@@ -29,12 +29,40 @@ const formatPrice = (amount: number, currency: string) => {
   }).format(amount / 100)
 }
 
+const allPlans = computed(() => {
+  const freePlan = {
+    price_id: 'free',
+    stripe_price_id: null,
+    currency: 'eur',
+    unit_amount: 0,
+    recurring: null,
+    product_name: t('plan-free-name') || 'Free',
+    product_description: t('plan-free-desc') || 'Perfecto para empezar',
+    tier: 'free',
+    price_metadata: {
+      features: JSON.stringify([
+        t('feature-cv-editor') || 'CV Editor',
+        t('feature-2-adaptations') || '2 AI adaptations / month',
+      ]),
+    },
+  }
+  return [freePlan, ...plans.value]
+})
+
 const handleCheckout = async (priceId: string) => {
   if (!user.value) {
     navigateTo(localePath('login') + '?redirect=/pricing')
     return
   }
   await checkout(priceId)
+}
+
+const handleFreePlan = () => {
+  if (!user.value) {
+    navigateTo(localePath('login') + '?redirect=/test2')
+    return
+  }
+  navigateTo(localePath('/test2'))
 }
 </script>
 
@@ -67,7 +95,7 @@ const handleCheckout = async (priceId: string) => {
 
       <!-- Pricing Cards -->
       <div v-else class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div v-for="plan in plans" :key="plan.price_id"
+        <div v-for="plan in allPlans" :key="plan.price_id"
              class="relative bg-white rounded-2xl shadow-lg border border-slate-200 p-8 flex flex-col"
              :class="{ 'ring-2 ring-violet-600 scale-105': plan.tier === 'pro' }">
 
@@ -83,7 +111,9 @@ const handleCheckout = async (priceId: string) => {
           </div>
 
           <div class="mb-6">
-            <span class="text-4xl font-bold text-slate-900">{{ formatPrice(plan.unit_amount, plan.currency) }}</span>
+            <span class="text-4xl font-bold text-slate-900">
+              {{ plan.unit_amount === 0 ? t('free-price-label') || 'Free' : formatPrice(plan.unit_amount, plan.currency) }}
+            </span>
             <span v-if="plan.recurring?.interval" class="text-slate-500">
               / {{ plan.recurring.interval }}
             </span>
@@ -100,7 +130,26 @@ const handleCheckout = async (priceId: string) => {
             </li>
           </ul>
 
+          <!-- Free plan button -->
           <button
+            v-if="plan.tier === 'free'"
+            class="w-full py-3 px-6 rounded-xl font-medium text-sm transition-colors bg-slate-100 text-slate-900 hover:bg-slate-200"
+            :disabled="!subscription?.hasActiveSubscription && subscription?.productName == null && user"
+            @click="handleFreePlan">
+            <span v-if="!subscription?.hasActiveSubscription && subscription?.productName == null && user">
+              {{ t('current-plan-label') || 'Current Plan' }}
+            </span>
+            <span v-else-if="user">
+              {{ t('start-free-button') || 'Start for Free' }}
+            </span>
+            <span v-else>
+              {{ t('login-to-subscribe') || 'Login to Subscribe' }}
+            </span>
+          </button>
+
+          <!-- Paid plan button -->
+          <button
+            v-else
             class="w-full py-3 px-6 rounded-xl font-medium text-sm transition-colors"
             :class="plan.tier === 'pro'
               ? 'bg-violet-600 text-white hover:bg-violet-700'

@@ -3,18 +3,23 @@ import { useCvState } from '~/data/useCvState'
 
 const { formSettings, setUpCvSettings, isLoading: isCvLoading, saveAdaptedCv } = useCvState()
 
-definePageMeta({
-  layout: 'app',
-})
 const localePath = useLocalePath()
 const { t, locale } = useI18n()
+const { remaining, canAdapt, fetchUsage, limit, current } = usePlanUsage()
+const showLimitModal = ref(false)
 
 const jobOffer = ref('')
 const isLoading = ref(false)
 const errorMessage = ref('')
 
+definePageMeta({
+  layout: 'app',
+  middleware: 'require-auth',
+})
+
 onMounted(() => {
   setUpCvSettings()
+  fetchUsage()
 })
 
 useHead({
@@ -26,9 +31,15 @@ useHead({
 
 const procesarCV = async () => {
   errorMessage.value = ''
+  showLimitModal.value = false
 
   if (!jobOffer.value.trim()) {
     errorMessage.value = t('error-empty-offer')
+    return
+  }
+
+  if (!canAdapt.value) {
+    showLimitModal.value = true
     return
   }
 
@@ -52,8 +63,13 @@ const procesarCV = async () => {
     }
   }
   catch (error: any) {
-    errorMessage.value = error.data?.statusMessage || t('error-adapting-cv')
-    console.error(error)
+    if (error.statusCode === 429 || error.data?.statusMessage === 'monthly_limit_reached') {
+      showLimitModal.value = true
+    }
+    else {
+      errorMessage.value = error.data?.statusMessage || t('error-adapting-cv')
+      console.error(error)
+    }
   }
   finally {
     isLoading.value = false
@@ -82,6 +98,32 @@ const procesarCV = async () => {
       <div class="flex flex-col h-full">
         <div class="bg-white p-5 sm:p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col h-full">
 
+          <!-- Usage Banner -->
+          <div class="mb-4 p-3 rounded-lg border"
+               :class="canAdapt ? 'bg-slate-50 border-slate-200' : 'bg-red-50 border-red-200'">
+            <p class="text-sm font-medium" :class="canAdapt ? 'text-slate-700' : 'text-red-700'">
+              {{ t('usage-remaining', { current, limit }) || `${current} of ${limit} used` }}
+            </p>
+            <p v-if="!canAdapt" class="text-xs text-red-600 mt-1">
+              {{ t('limit-reached-desc') || 'You have reached your monthly limit. Upgrade to continue.' }}
+            </p>
+          </div>
+
+          <!-- Limit Reached Modal/CTA -->
+          <div v-if="showLimitModal" class="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg text-center">
+            <p class="text-sm font-semibold text-red-800 mb-2">
+              {{ t('limit-reached-title') || 'Monthly limit reached' }}
+            </p>
+            <p class="text-xs text-red-600 mb-3">
+              {{ t('limit-reached-desc') || 'You have used all your AI adaptations this month. Upgrade your plan to get more.' }}
+            </p>
+            <NuxtLink
+              to="/pricing"
+              class="inline-flex items-center px-4 py-2 bg-violet-600 text-white text-sm font-medium rounded-lg hover:bg-violet-700 transition-colors">
+              {{ t('upgrade-cta') || 'View Plans' }}
+            </NuxtLink>
+          </div>
+
           <div class="mb-5 flex-grow">
             <label class="block text-sm font-semibold text-slate-900 mb-1">
               {{ t('job-offer-label') }}
@@ -98,13 +140,13 @@ const procesarCV = async () => {
             />
           </div>
 
-          <div v-if="errorMessage" class="mb-4 px-3 py-2 bg-red-50 text-red-600 rounded-lg border border-red-100 flex items-start gap-2">
+          <div v-if="errorMessage && !showLimitModal" class="mb-4 px-3 py-2 bg-red-50 text-red-600 rounded-lg border border-red-100 flex items-start gap-2">
             <span class="text-sm font-medium">{{ errorMessage }}</span>
           </div>
 
           <button
             class="w-full py-2.5 px-4 bg-slate-900 hover:bg-slate-800 disabled:bg-slate-300 disabled:text-slate-500 text-white rounded-lg text-sm font-medium transition-colors flex justify-center items-center gap-2"
-            :disabled="isLoading"
+            :disabled="isLoading || !canAdapt"
             @click="procesarCV"
           >
             <span v-if="isLoading" class="flex items-center gap-2">
