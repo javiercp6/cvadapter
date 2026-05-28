@@ -26,7 +26,7 @@ export default defineEventHandler(async (event) => {
   } else {
     const customer = await stripe.customers.create({
       email: user.email!,
-      metadata: { supabase_user_id: user.id },
+      metadata: { supabase_user_id: user.sub },
     })
     customerId = customer.id
   }
@@ -37,7 +37,7 @@ export default defineEventHandler(async (event) => {
     mode: 'subscription',
     success_url: `${useRuntimeConfig(event).public.siteUrl}/billing?success=true`,
     cancel_url: `${useRuntimeConfig(event).public.siteUrl}/pricing?canceled=true`,
-    metadata: { supabase_user_id: user.id },
+    metadata: { supabase_user_id: user.sub },
   })
 
   return { sessionId: session.id, url: session.url }

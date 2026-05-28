@@ -20,11 +20,27 @@ export default defineEventHandler(async (event) => {
   const { limit } = await resolveUserPlan(event)
   const supabase = await serverSupabaseClient(event)
 
+  // Validación de seguridad: serverSupabaseUser devuelve el JWT decodificado,
+  // donde el UUID del usuario está en el campo 'sub' (subject), no 'id'
+  if (!user?.sub) {
+    throw createError({
+      statusCode: 401,
+      statusMessage: 'No se encontró un ID de usuario válido en la sesión',
+    })
+  }
+
+  if (limit === undefined || limit === null) {
+    throw createError({
+      statusCode: 400,
+      statusMessage: 'No se pudo determinar el límite del plan del usuario',
+    })
+  }
+
   const { data: newCount, error: usageError } = await supabase.rpc(
     'check_and_increment_usage',
     {
-      p_user_id: user.id,
-      p_limit: limit,
+      p_user_id: user.sub,
+      p_limit: Number(limit), // Forzar tipo numérico para PostgREST
     }
   )
 
