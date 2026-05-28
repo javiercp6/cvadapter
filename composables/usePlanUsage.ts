@@ -9,7 +9,7 @@ export function usePlanUsage() {
   const productName = ref<string | null>(null)
 
   async function fetchUsage() {
-    if (!user.value) {
+    if (!user.value?.id) {
       isLoading.value = false
       return
     }

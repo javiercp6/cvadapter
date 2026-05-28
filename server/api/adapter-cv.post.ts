@@ -29,9 +29,10 @@ export default defineEventHandler(async (event) => {
   )
 
   if (usageError || !newCount) {
+    const isLimitReached = usageError?.message?.toLowerCase().includes('limit reached')
     throw createError({
-      statusCode: 429,
-      statusMessage: 'monthly_limit_reached',
+      statusCode: isLimitReached ? 429 : 500,
+      statusMessage: isLimitReached ? 'monthly_limit_reached' : (usageError?.message || 'Failed to check usage limit'),
     })
   }
 
