@@ -104,20 +104,9 @@ const procesarCV = async () => {
       <div class="flex flex-col h-full">
         <div class="bg-white p-5 sm:p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col h-full">
 
-          <!-- Usage Banner -->
-          <div class="mb-4 p-3 rounded-lg border"
-               :class="canAdapt ? 'bg-slate-50 border-slate-200' : 'bg-red-50 border-red-200'">
-            <p class="text-sm font-medium" :class="canAdapt ? 'text-slate-700' : 'text-red-700'">
-              {{ t('usage-remaining', { current, limit }) || `${current} of ${limit} used` }}
-            </p>
-            <p v-if="!canAdapt" class="text-xs text-red-600 mt-1">
-              {{ t('limit-reached-desc') || 'You have reached your monthly limit. Upgrade to continue.' }}
-            </p>
-          </div>
-
-          <!-- Limit Reached Modal/CTA -->
-          <div v-if="showLimitModal" class="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg text-center">
-            <p class="text-sm font-semibold text-red-800 mb-2">
+          <!-- Limit Reached Banner (se muestra si no puede adaptar o se activó el modal) -->
+          <div v-if="!canAdapt || showLimitModal" class="mb-5 p-4 bg-red-50 border border-red-200 rounded-lg text-center">
+            <p class="text-sm font-semibold text-red-800 mb-1">
               {{ t('limit-reached-title') || 'Monthly limit reached' }}
             </p>
             <p class="text-xs text-red-600 mb-3">
@@ -125,15 +114,24 @@ const procesarCV = async () => {
             </p>
             <NuxtLink
               to="/pricing"
-              class="inline-flex items-center px-4 py-2 bg-violet-600 text-white text-sm font-medium rounded-lg hover:bg-violet-700 transition-colors">
+              class="inline-flex items-center px-4 py-2 bg-violet-600 text-white text-sm font-medium rounded-lg hover:bg-violet-700 transition-colors shadow-sm">
               {{ t('upgrade-cta') || 'View Plans' }}
             </NuxtLink>
           </div>
 
           <div class="mb-5 flex-grow">
-            <label class="block text-sm font-semibold text-slate-900 mb-1">
-              {{ t('job-offer-label') }}
-            </label>
+            <div class="flex justify-between items-center mb-1">
+              <label class="block text-sm font-semibold text-slate-900">
+                {{ t('job-offer-label') }}
+              </label>
+              <!-- Chip minimalista de adaptaciones (pasa a rojo si no le quedan) -->
+              <span
+                class="text-xs font-semibold px-2.5 py-0.5 rounded-full"
+                :class="canAdapt ? 'bg-slate-100 text-slate-600' : 'bg-red-100 text-red-700 border border-red-200 animate-pulse'"
+              >
+                {{ current }} / {{ limit }}
+              </span>
+            </div>
             <p class="text-xs text-slate-500 mb-4">
               {{ t('job-offer-hint') }}
             </p>
