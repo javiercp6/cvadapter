@@ -30,11 +30,12 @@ useHead({
 async function fetchInvoices() {
   isInvoicesLoading.value = true
   try {
-    // ✅ Fix Bug 3: capturar el error del customer lookup
+    // ✅ Fix Bug 3: capturar el error del customer lookup (Soporta ID o SUB)
+    const userId = user.value?.id || user.value?.sub
     const { data: customerData, error: customerError } = await supabase
       .from('stripe.customers')
       .select('id')
-      .or(`metadata->>user_id.eq.${user.value?.id},email.eq.${user.value?.email}`)
+      .or(`metadata->>user_id.eq.${userId},email.eq.${user.value?.email}`)
       .maybeSingle() // ✅ Fix Bug 3: maybeSingle() es más seguro que single()
 
     if (customerError) {

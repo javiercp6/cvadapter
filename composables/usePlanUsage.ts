@@ -38,13 +38,14 @@ export function usePlanUsage() {
         productName.value = null
       }
 
-      // 2. Obtener contador del mes actual (solo si user ya cargó)
-      if (user.value?.id) {
+      // 2. Obtener contador del mes actual (solo si el usuario ya cargó)
+      const userId = user.value?.id || user.value?.sub
+      if (userId) {
         const month = new Date().toISOString().slice(0, 7) // YYYY-MM
         const { data: usageData } = await supabase
           .from('user_monthly_usage')
           .select('adaptations_count')
-          .eq('user_id', user.value.id)
+          .eq('user_id', userId)
           .eq('usage_month', month)
           .maybeSingle()
 
@@ -61,7 +62,7 @@ export function usePlanUsage() {
 
   // Re-fetch automáticamente cuando el usuario de Supabase finalmente cargue
   watch(user, (newUser) => {
-    if (newUser?.id) fetchUsage()
+    if (newUser?.id || newUser?.sub) fetchUsage()
   }, { immediate: true })
 
   const remaining = computed(() => Math.max(0, limit.value - current.value))
