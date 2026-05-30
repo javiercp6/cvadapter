@@ -186,5 +186,6 @@
     "adaptations-usage-title": "AI Adaptations this month",
     "monthly-limit-error": "You have reached your monthly adaptation limit.",
     "active": "Active",
-    "current-plan-label": "Current Plan"
+    "current-plan-label": "Current Plan",
+    "editing-adapted-cv-banner": "You are editing your AI-Adapted CV for this job offer."
 }
