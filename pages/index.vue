@@ -20,15 +20,15 @@ definePageMeta({
           </p>
           <div class="flex flex-wrap gap-4">
             <NuxtLink 
-              :to="localePath('login')" 
+              :to="localePath('create')" 
               class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-8 py-4 rounded-xl font-bold text-lg shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all inline-block"
             >
               {{ $t('landing-cta-start') }}
             </NuxtLink>
-            <button class="bg-surface-container-highest text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-surface-container-high transition-all flex items-center gap-2">
+            <!-- <button class="bg-surface-container-highest text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-surface-container-high transition-all flex items-center gap-2">
               <span class="material-symbols-outlined">play_circle</span>
               {{ $t('landing-cta-demo') }}
-            </button>
+            </button> -->
           </div>
         </div>
         <div class="relative">
@@ -42,7 +42,7 @@ definePageMeta({
                   </svg>
                 </div>
                 <div>
-                  <p class="text-sm font-bold">Resumen_Final_V2.pdf</p>
+                  <p class="text-sm font-bold">CV_Final_V2.pdf</p>
                   <p class="text-[10px] text-on-surface-variant">{{ $t('landing-hero-optimized') }}</p>
                 </div>
               </div>
@@ -51,7 +51,7 @@ definePageMeta({
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                 </svg>
-                98% ATS Match
+                98% <span class="hidden sm:inline">ATS Match</span>
               </div>
             </div>
             <div class="space-y-3">

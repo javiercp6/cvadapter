@@ -9,6 +9,8 @@ const supabase = useSupabaseClient()
 const HREF = `https://adaptercv.com${route.path}`
 const GITHUB = 'https://github.com/claudiabdm/cvfy'
 
+const isMenuOpen = ref(false)
+
 const signOut = async () => {
   await supabase.auth.signOut()
 }
@@ -79,15 +81,13 @@ useHead({
   <div class="font-landing bg-surface text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
     <!-- Top NavBar -->
     <nav class="bg-white/80 backdrop-blur-xl sticky top-0 z-50 shadow-sm shadow-[#191c1e]/5">
-      <div class="max-w-7xl mx-auto px-6 h-20">
-        <div class="grid grid-cols-3 items-center h-full">
-          <!-- Logo -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20">
+        <!-- Desktop -->
+        <div class="hidden md:grid grid-cols-3 items-center h-full">
           <NuxtLink :to="localePath('/')" class="text-2xl font-black tracking-tight text-[#191c1e]">
             ADAPTERCV
           </NuxtLink>
-
-          <!-- Nav Links (centered) -->
-          <div class="hidden md:flex items-center justify-center gap-8">
+          <div class="flex items-center justify-center gap-8">
             <NuxtLink :to="localePath('/')" class="text-[#191c1e] font-medium hover:text-[#5200e3] transition-colors duration-300">
               {{ $t('nav-home') }}
             </NuxtLink>
@@ -95,8 +95,6 @@ useHead({
               {{ $t('nav-pricing') }}
             </NuxtLink>
           </div>
-
-          <!-- Actions -->
           <div class="flex items-center justify-end gap-4">
             <LandingLangSwitch />
             <template v-if="user">
@@ -122,7 +120,80 @@ useHead({
             </NuxtLink>
           </div>
         </div>
+
+        <!-- Mobile -->
+        <div class="flex md:hidden justify-between items-center h-full">
+          <NuxtLink :to="localePath('/')" class="text-2xl font-black tracking-tight text-[#191c1e]">
+            ADAPTERCV
+          </NuxtLink>
+          <button
+            class="p-2 rounded-lg text-[#191c1e] hover:bg-slate-100 transition-colors duration-200"
+            @click="isMenuOpen = !isMenuOpen"
+            aria-label="Toggle menu"
+          >
+            <svg v-if="!isMenuOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+            <svg v-else xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
       </div>
+
+      <!-- Mobile Menu -->
+      <transition
+        enter-active-class="transition duration-150 ease-out"
+        enter-from-class="transform scale-95 opacity-0"
+        enter-to-class="transform scale-100 opacity-100"
+        leave-active-class="transition duration-100 ease-in"
+        leave-from-class="transform scale-100 opacity-100"
+        leave-to-class="transform scale-95 opacity-0"
+      >
+        <div v-if="isMenuOpen" class="md:hidden bg-white border-t border-slate-200 shadow-lg px-4 pb-6 pt-4 space-y-4">
+          <NuxtLink
+            :to="localePath('/')"
+            class="block text-[#191c1e] font-medium hover:text-[#5200e3] transition-colors duration-300"
+            @click="isMenuOpen = false"
+          >
+            {{ $t('nav-home') }}
+          </NuxtLink>
+          <NuxtLink
+            :to="localePath('/pricing')"
+            class="block text-[#191c1e] font-medium hover:text-[#5200e3] transition-colors duration-300"
+            @click="isMenuOpen = false"
+          >
+            {{ $t('nav-pricing') }}
+          </NuxtLink>
+          <hr class="border-slate-200">
+          <div class="flex items-center gap-4">
+            <LandingLangSwitch />
+          </div>
+          <template v-if="user">
+            <NuxtLink
+              :to="localePath('/create')"
+              class="block w-full text-center bg-gradient-to-r from-primary to-primary-container text-on-primary px-6 py-2.5 rounded-xl font-semibold"
+              @click="isMenuOpen = false"
+            >
+              Dashboard
+            </NuxtLink>
+            <button
+              class="block w-full text-center text-slate-500 hover:text-red-600 transition-colors duration-300 py-2"
+              @click="signOut; isMenuOpen = false"
+            >
+              Sign Out
+            </button>
+          </template>
+          <NuxtLink
+            v-else
+            :to="localePath('login')"
+            class="block w-full text-center bg-gradient-to-r from-primary to-primary-container text-on-primary px-6 py-2.5 rounded-xl font-semibold"
+            @click="isMenuOpen = false"
+          >
+            {{ $t('get-started') }}
+          </NuxtLink>
+        </div>
+      </transition>
     </nav>
     
     <!-- Main Content -->
@@ -131,7 +202,7 @@ useHead({
     </main>
     
     <!-- Footer -->
-    <footer class="bg-[#f2f4f6] py-12 px-6">
+    <footer class="bg-[#f2f4f6] py-12 px-4 sm:px-6">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
         <div class="flex flex-col gap-4">
           <div class="text-xl font-bold text-[#191c1e]">ADAPTERCV</div>

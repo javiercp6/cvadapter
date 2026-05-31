@@ -57,6 +57,26 @@ const handleCheckout = async (priceId: string) => {
   await checkout(priceId)
 }
 
+const getPlanFeatures = (tier: string) => {
+  if (tier === 'pro') {
+    return [
+      t('feature-cv-editor') || 'Full CV Editor',
+      t('feature-50-adaptations') || '50 AI adaptations / month',
+    ]
+  }
+  if (tier === 'basic' || tier === 'default') {
+    return [
+      t('feature-cv-editor') || 'Full CV Editor',
+      t('feature-20-adaptations') || '20 AI adaptations / month',
+    ]
+  }
+  // Free plan
+  return [
+    t('feature-cv-editor') || 'Full CV Editor',
+    t('feature-2-adaptations') || '2 AI adaptations / month',
+  ]
+}
+
 const handleFreePlan = () => {
   if (!user.value) {
     navigateTo(localePath('login') + '?redirect=/test2')
@@ -120,7 +140,7 @@ const handleFreePlan = () => {
           </div>
 
           <ul class="space-y-3 mb-8 flex-grow">
-            <li v-for="feature in (JSON.parse(plan.price_metadata?.features || '[]') || ['All core features'])"
+            <li v-for="feature in getPlanFeatures(plan.tier)"
                 :key="feature"
                 class="flex items-start gap-2 text-sm text-slate-600">
               <svg class="w-5 h-5 text-green-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
