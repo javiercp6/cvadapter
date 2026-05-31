@@ -2,7 +2,7 @@ import { type Cv, LEVELS } from '~/types/cvfy'
 
 export const cvSettingTemplate: Cv = {
   layout: 'two-column',
-  profileImageDataUri: '/knope_campaign_rect.webp',
+  profileImageDataUri: '/profile.webp',
   jobTitle: 'Senior Frontend Developer',
   name: 'Alex',
   lastName: 'Morgan',
