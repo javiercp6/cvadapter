@@ -95,7 +95,7 @@ useHead({
 </script>
 
 <template>
-  <div class="flex flex-col h-screen overflow-hidden">
+  <div>
     <!-- ⚡ BANNER DE MODO ADAPTADO (Ancho completo, oculto al imprimir) -->
     <div
       v-if="isAdaptedMode"
@@ -124,7 +124,7 @@ useHead({
     </div>
 
     <!-- Contenido Principal (Ajustes + Preview) -->
-    <main class="font-app main flex-1 flex h-full overflow-hidden">
+    <main class="font-app main">
       <CvSettings class="basis-1/4 min-w-80" />
       <CvPreview class="basis-3/4" />
     </main>
