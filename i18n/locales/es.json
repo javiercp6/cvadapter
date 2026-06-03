@@ -187,5 +187,10 @@
     "monthly-limit-error": "Has alcanzado tu límite mensual de adaptaciones.",
     "active": "Activo",
     "current-plan-label": "Plan Actual",
-    "editing-adapted-cv-banner": "Estás editando tu CV Adaptado por Inteligencia Artificial para la oferta de trabajo."
+    "editing-adapted-cv-banner": "Estás editando tu CV Adaptado por Inteligencia Artificial para la oferta de trabajo.",
+    "pricing-title": "Elige tu plan",
+    "pricing-subtitle": "Empieza gratis, sube de plan cuando necesites más.",
+    "subscribe-button": "Suscribirse",
+    "login-to-subscribe": "Inicia sesión para suscribirte",
+    "most-popular": "Más Popular"
 }

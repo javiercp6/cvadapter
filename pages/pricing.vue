@@ -57,14 +57,16 @@ const handleCheckout = async (priceId: string) => {
   await checkout(priceId)
 }
 
-const getPlanFeatures = (tier: string) => {
-  if (tier === 'pro') {
+const getPlanFeatures = (plan: any) => {
+  const tier = String(plan.tier || '').toLowerCase()
+  const name = String(plan.product_name || '').toLowerCase()
+  if (tier === 'pro' || name.includes('pro')) {
     return [
       t('feature-cv-editor') || 'Full CV Editor',
       t('feature-50-adaptations') || '50 AI adaptations / month',
     ]
   }
-  if (tier === 'basic' || tier === 'default') {
+  if (tier === 'basic' || name.includes('basic')) {
     return [
       t('feature-cv-editor') || 'Full CV Editor',
       t('feature-20-adaptations') || '20 AI adaptations / month',
@@ -140,7 +142,7 @@ const handleFreePlan = () => {
           </div>
 
           <ul class="space-y-3 mb-8 flex-grow">
-            <li v-for="feature in getPlanFeatures(plan.tier)"
+            <li v-for="feature in getPlanFeatures(plan)"
                 :key="feature"
                 class="flex items-start gap-2 text-sm text-slate-600">
               <svg class="w-5 h-5 text-green-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -188,11 +190,7 @@ const handleFreePlan = () => {
           </button>
         </div>
       </div>
-
-      <!-- Footer -->
-      <div class="mt-16 text-center text-sm text-slate-500">
-        <p>{{ t('pricing-footer') || 'All plans include a 14-day free trial. Cancel anytime.' }}</p>
-      </div>
     </div>
   </div>
 </template>
+
