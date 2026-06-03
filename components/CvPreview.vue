@@ -41,18 +41,6 @@ const { formSettings, isLoading } = useCvState()
         </template>
       </div>
     </div>
-
-    <div class="credit">
-      Made with ♥️ by
-      <a
-        class="underline"
-        :style="{ color: 'var(--primary)' }"
-        href="https://github.com/claudiabdm"
-        rel="noopener"
-        target="_blank"
-      >claudiabdm</a>
-      using <b>Nuxt.js</b> + <b>TailwindCSS</b>
-    </div>
   </div>
 </template>
 
