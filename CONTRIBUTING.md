@@ -24,7 +24,7 @@ To contribute to AdapterCV, please follow these steps:
 
 1. Fork the AdapterCV repository to your GitHub account.
 2. Clone your forked repository to your local machine:
-   `git clone https://github.com/<your-username>/cvfy.git`
+   `git clone https://github.com/<your-username>/cvadapter.git`
 3. Install the project dependencies as described in the project's [README](README.md) file.
 
 # Submitting a Pull Request (PR)
@@ -41,4 +41,4 @@ When submitting a PR, provide a comprehensive description of the changes and the
 
 # Contact
 
-If you have any questions or need any further assistance, you can reach out to [claudiabdm](https://github.com/claudiabdm).
+If you have any questions or need any further assistance, you can reach out to [javiercp6](https://github.com/javiercp6).

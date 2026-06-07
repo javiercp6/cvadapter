@@ -6,7 +6,7 @@ definePageMeta({
   middleware: 'require-auth',
 })
 
-const CVFY_IMAGE = 'https://adaptercv.com/AdapterCV-no-border.png'
+const ADAPTERCV_IMAGE = 'https://adaptercv.com/AdapterCV-no-border.png'
 
 const { setUpCvSettings } = useCvState()
 const route = useRoute()
@@ -28,11 +28,6 @@ useHead({
   title: t('title-tag'),
   link: [
     {
-      rel: 'preload',
-      as: 'image',
-      href: 'https://cdn.ko-fi.com/cdn/kofi5.png?v=3',
-    },
-    {
       rel: 'canonical',
       href,
     },
@@ -44,15 +39,15 @@ useHead({
     },
     {
       name: 'author',
-      content: 'claudiabdm',
+      content: 'javiercp6',
     },
     {
       property: 'og:image',
-      content: CVFY_IMAGE,
+      content: ADAPTERCV_IMAGE,
     },
     {
       property: 'og:author',
-      content: 'Claudia Benito',
+      content: 'Javier Ceballo Pérez',
     },
     {
       property: 'og:title',
@@ -64,7 +59,7 @@ useHead({
     },
     {
       name: 'twitter:creator',
-      content: '@claudiabdm',
+      content: '@javiercp6',
     },
     {
       name: 'twitter:title',
@@ -84,7 +79,7 @@ useHead({
     },
     {
       name: 'twitter:image',
-      content: CVFY_IMAGE,
+      content: ADAPTERCV_IMAGE,
     },
     {
       name: 'twitter:image:alt',

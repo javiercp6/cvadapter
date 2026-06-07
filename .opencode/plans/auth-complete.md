@@ -717,6 +717,6 @@ const signOut = async () => {
 
 ## Supabase Dashboard: configurar
 
-- Agregar `http://localhost:3000/confirm` y `https://www.cvfy.xyz/confirm` a **Authentication -> URL Configuration -> Redirect URLs**
-- Agregar `http://localhost:3000/password/update` y `https://www.cvfy.xyz/password/update` a Redirect URLs
+- Agregar `http://localhost:3000/confirm` y `https://adaptercv.com/confirm` a **Authentication -> URL Configuration -> Redirect URLs**
+- Agregar `http://localhost:3000/password/update` y `https://adaptercv.com/password/update` a Redirect URLs
 - Verificar que Google OAuth provider esta activado en **Authentication -> Providers**

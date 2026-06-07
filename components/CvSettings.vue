@@ -82,22 +82,6 @@ function getCurrentColor(colorValue: string): {
 <template>
   <div class="settings">
     <div class="flex justify-between items-center title pt-2 px-6">
-      <!-- <LandingLogo />
-      <a
-        class="buy-me-a-coffee"
-        href="https://ko-fi.com/X8X4COWK0"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Buy me a coffee"
-      >
-        <img
-          class="buy-me-a-coffee__image"
-          src="https://cdn.ko-fi.com/cdn/kofi5.png?v=3"
-          width="118px"
-          height="30px"
-          alt="Buy me a coffee button"
-        >
-      </a> -->
       <NuxtLink :to="switchLocalePath(i18n.locale) + '/test2'" class="form__btn  flex justify-start w-full">
         <svg v-if="isAdaptedMode" class="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
@@ -353,16 +337,6 @@ function getCurrentColor(colorValue: string): {
     display: none;
     box-shadow: none;
     z-index: 0;
-  }
-}
-
-.buy-me-a-coffee {
-  flex-shrink: 1;
-
-  &__image {
-    width: 118px;
-    height: 30px;
-    font-size: 0.5rem;
   }
 }
 </style>

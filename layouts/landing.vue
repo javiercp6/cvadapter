@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const CVFY_IMAGE = 'https://adaptercv.com/AdapterCV-no-border.png'
+const ADAPTERCV_IMAGE = 'https://adaptercv.com/AdapterCV-no-border.png'
 
 const { locale, t } = useI18n()
 const route = useRoute()
@@ -7,7 +7,6 @@ const localePath = useLocalePath()
 const user = useSupabaseUser()
 const supabase = useSupabaseClient()
 const HREF = `https://adaptercv.com${route.path}`
-const GITHUB = 'https://github.com/claudiabdm/cvfy'
 
 const isMenuOpen = ref(false)
 
@@ -27,15 +26,15 @@ useHead({
     },
     {
       name: 'author',
-      content: 'claudiabdm',
+      content: 'javiercp6',
     },
     {
       property: 'og:image',
-      content: CVFY_IMAGE,
+      content: ADAPTERCV_IMAGE,
     },
     {
       property: 'og:author',
-      content: 'Claudia Benito',
+      content: 'Javier Ceballo Pérez',
     },
     {
       property: 'og:title',
@@ -47,7 +46,7 @@ useHead({
     },
     {
       name: 'twitter:creator',
-      content: '@claudiabdm',
+      content: '@javiercp6',
     },
     {
       name: 'twitter:title',
@@ -67,7 +66,7 @@ useHead({
     },
     {
       name: 'twitter:image',
-      content: CVFY_IMAGE,
+      content: ADAPTERCV_IMAGE,
     },
     {
       name: 'twitter:image:alt',
