@@ -33,7 +33,8 @@ export function usePricingPlans() {
       // Fallback: try direct query if RPC doesn't exist yet
       try {
         const { data, error: queryError } = await supabase
-          .from('stripe.prices')
+          .schema('stripe')
+          .from('prices')
           .select(`
             id, currency, unit_amount, type, recurring, active, metadata,
             products (

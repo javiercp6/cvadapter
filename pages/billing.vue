@@ -50,7 +50,8 @@ async function fetchInvoices() {
     }
 
     const { data, error } = await supabase
-      .from('stripe.invoices')
+      .schema('stripe')
+      .from('invoices')
       .select('*')
       .eq('customer', customerData.id)
       .order('created', { ascending: false })

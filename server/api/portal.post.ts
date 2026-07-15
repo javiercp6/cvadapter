@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
   }
 
   const stripeKey = useRuntimeConfig(event).stripeSecretKey as string
-  const stripe = new Stripe(stripeKey, { apiVersion: '2023-10-16' })
+  const stripe = new Stripe(stripeKey)
 
   const customers = await stripe.customers.list({ email: user.email!, limit: 1 })
 

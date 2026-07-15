@@ -6,7 +6,7 @@ definePageMeta({
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const user = useSupabaseUser()
-const { subscription, fetchSubscription, checkout, isLoading: isSubLoading } = useSubscription()
+const { subscription, fetchSubscription, checkout, error: subError, isLoading: isSubLoading } = useSubscription()
 const { plans, fetchPlans, isLoading: isPlansLoading } = usePricingPlans()
 
 onMounted(async () => {
@@ -108,6 +108,11 @@ const handleFreePlan = () => {
           </svg>
           {{ t('current-plan') || 'Current plan:' }} {{ subscription.productName }}
         </div>
+      </div>
+
+      <!-- Checkout Error -->
+      <div v-if="subError" class="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm text-center">
+        {{ subError }}
       </div>
 
       <!-- Loading State -->

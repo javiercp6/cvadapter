@@ -7,7 +7,7 @@ export function useSubscription() {
 
   const subscription = ref<{
     hasActiveSubscription: boolean
-    productName: string
+    productName: string | null
     status: string
     currentPeriodEnd: string | null
     cancelAtPeriodEnd: boolean
@@ -34,6 +34,7 @@ export function useSubscription() {
           status: row.status,
           currentPeriodEnd: row.current_period_end || null,
           cancelAtPeriodEnd: row.cancel_at_period_end,
+          billingInterval: row.billing_interval || undefined,
         }
       } else {
         subscription.value = {
