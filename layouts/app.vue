@@ -67,9 +67,10 @@ useHead({
           </button>
 
           <!-- Logo -->
-          <NuxtLink :to="localePath('/')" class="text-lg font-bold text-slate-900 tracking-tight">
-            ADAPTERCV
-          </NuxtLink>
+          <!-- <NuxtLink :to="localePath('/')" class="text-lg font-bold text-slate-900 tracking-tight">
+            <img src="/logo.png" alt="AdapterCV Logo">
+          </NuxtLink> -->
+          <LandingLogo/>
         </div>
 
         <!-- Center: Navigation Links -->

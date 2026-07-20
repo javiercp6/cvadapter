@@ -3,17 +3,18 @@ const localePath = useLocalePath()
 </script>
 
 <template>
-  <h1>
+
     <NuxtLink
       :to="localePath('/')"
-      class="bg-none font-bold text-fl-lg font-logo uppercase tracking-widest"
+      class=""
       active-class="bg-none"
     >
-      <span
+      <!-- <span
         class="text-transparent bg-gradient-to-br from-violet-800 to-fuchsia-700 bg-clip-text hover:opacity-80"
       >
         AdapterCV
-      </span>
+      </span> -->
+      <img src="/logo.png" alt="AdapterCV Logo">
     </NuxtLink>
-  </h1>
+
 </template>

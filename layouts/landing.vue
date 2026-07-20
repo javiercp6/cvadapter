@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+
 const ADAPTERCV_IMAGE = 'https://adaptercv.com/AdapterCV-no-border.png'
 
 const { locale, t } = useI18n()
@@ -83,9 +84,10 @@ useHead({
       <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20">
         <!-- Desktop -->
         <div class="hidden md:grid grid-cols-3 items-center h-full">
-          <NuxtLink :to="localePath('/')" class="text-2xl font-black tracking-tight text-[#191c1e]">
+          <!-- <NuxtLink :to="localePath('/')" class="text-2xl font-black tracking-tight text-[#191c1e]">
             ADAPTERCV
-          </NuxtLink>
+          </NuxtLink> -->
+          <LandingLogo/>
           <div class="flex items-center justify-center gap-8">
             <NuxtLink :to="localePath('/')" class="text-[#191c1e] font-medium hover:text-[#5200e3] transition-colors duration-300">
               {{ $t('nav-home') }}
