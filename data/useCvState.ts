@@ -1,7 +1,8 @@
 import { reactive, toRefs } from 'vue'
 import {
   //cvBackendDevOpsTemplate,
-  cvSettingTemplate,
+  //cvSettingTemplate,
+  cvSettingTemplateEs,
   cvSettingsEmptyTemplate,
 } from './example-cv-settings'
 import {
@@ -35,7 +36,7 @@ export function useCvState() {
 
     if (cvSettings == null) {
       state.formSettings = {
-        ...cvSettingTemplate,
+        ...cvSettingTemplateEs,
       }
     }
     else {
@@ -152,7 +153,7 @@ export function useCvState() {
 
   function resetForm(): void {
     state.formSettings = {
-      ...cvSettingTemplate,
+      ...cvSettingTemplateEs,
     }
     localStorage.setItem(
       getStorageKey(),

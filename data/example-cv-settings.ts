@@ -222,3 +222,81 @@ export const cvBackendDevOpsTemplate: Cv = {
   displayInterests: true,
   activeColor: '#0E7490',
 }
+
+export const cvSettingTemplateEs: Cv = {
+  layout: 'two-column',
+  profileImageDataUri: '/profile.webp',
+  jobTitle: 'Desarrollador Frontend Senior',
+  name: 'Alex',
+  lastName: 'Morgan',
+  email: 'alex.morgan@email.com',
+  location: 'Madrid, España',
+  phoneNumber: '+34 612 345 678',
+  aboutme:
+    'Desarrollador frontend con m\u00E1s de 6 a\u00F1os de experiencia creando aplicaciones web accesibles y de alto rendimiento. Especializado en el ecosistema React con amplia experiencia en Next.js, TypeScript y gesti\u00F3n de estado moderna. Apasionado por la experiencia de desarrollo, la arquitectura de componentes y la optimizaci\u00F3n del rendimiento web.',
+  jobSkills: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Redux', 'GraphQL', 'React Query', 'Vite', 'Git', 'Jest', 'Cypress'],
+  softSkills: ['Liderazgo de equipo', 'Comunicaci\u00F3n t\u00E9cnica', 'Revisi\u00F3n de c\u00F3digo', 'Mentor\u00EDa'],
+  languages: [
+    { lang: 'Espa\u00F1ol', level: LEVELS[4] },
+    { lang: 'Ingl\u00E9s', level: LEVELS[4] },
+  ],
+  interests: ['C\u00F3digo Abierto', 'Rendimiento Web', 'Sistemas de Dise\u00F1o', 'Herramientas IA'],
+  linkedin: 'alexmorgan-dev',
+  twitter: 'alexmorgan_dev',
+  github: 'alexmorgan-dev',
+  website: 'alexmorgan.dev',
+  education: [
+    {
+      id: '1',
+      title: 'Ingenier\u00EDa Inform\u00E1tica',
+      location: 'Universidad Polit\u00E9cnica de Madrid',
+      from: new Date(2014, 9, 1),
+      to: new Date(2018, 6, 1),
+      current: false,
+      summary:
+        '<ul><li><p>Especializaci\u00F3n en Ingenier\u00EDa de Software e Interacci\u00F3n Persona-Ordenador</p></li><li><p>Proyecto final: Aplicaci\u00F3n web progresiva para gesti\u00F3n de tareas con soporte offline</p></li></ul>',
+    },
+  ],
+  work: [
+    {
+      id: '1',
+      title: 'Desarrollador Frontend Senior',
+      location: 'TechScale Inc.',
+      from: new Date(2022, 3, 1),
+      to: new Date(),
+      current: true,
+      summary:
+        '<ul><li><p>Lider\u00E9 la migraci\u00F3n de un monolito legacy a Next.js 14 + TypeScript, mejorando el LCP en un 45%</p></li><li><p>Constru\u00ED una biblioteca de componentes compartida con Storybook adoptada por 4 equipos de producto</p></li><li><p>Mentoric\u00E9 a 3 desarrolladores junior mediante revisiones de c\u00F3digo estructuradas y pair programming</p></li><li><p>Implement\u00E9 una estrategia integral de testing con Jest y Cypress alcanzando m\u00E1s del 90% de cobertura</p></li></ul>',
+    },
+    {
+      id: '2',
+      title: 'Desarrollador Frontend',
+      location: 'DataFlow Startup',
+      from: new Date(2019, 1, 1),
+      to: new Date(2022, 2, 1),
+      current: false,
+      summary:
+        '<ul><li><p>Constru\u00ED la SPA principal del dashboard con React, Redux Toolkit y React Router</p></li><li><p>Integr\u00E9 APIs GraphQL con Apollo Client, reduciendo el tama\u00F1o del bundle en un 30%</p></li><li><p>Optimic\u00E9 los Core Web Vitals consiguiendo puntuaciones consistentes de 95+ en Lighthouse</p></li><li><p>Colabor\u00E9 con el equipo de dise\u00F1o para implementar un sistema de dise\u00F1o responsive y accesible</p></li></ul>',
+    },
+  ],
+  projects: [
+    {
+      id: '3',
+      title: 'DevMetrics Dashboard',
+      location: 'C\u00F3digo Abierto',
+      from: new Date(2023, 6, 1),
+      to: new Date(),
+      current: true,
+      summary:
+        '<ul><li><p>Dashboard anal\u00EDtico basado en React para medir m\u00E9tricas de productividad de desarrolladores</p></li><li><p>Incluye visualizaci\u00F3n de datos en tiempo real con D3.js e integraci\u00F3n con la API de GitHub</p></li><li><p>M\u00E1s de 200 estrellas en GitHub, destacado en la React Newsletter</p></li></ul>',
+    },
+  ],
+  displaySocial: true,
+  displayEducation: true,
+  displayProjects: true,
+  displayJobSkills: true,
+  displaySoftSkills: true,
+  displayLanguages: true,
+  displayInterests: true,
+  activeColor: '#5B21B6',
+}
