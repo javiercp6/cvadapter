@@ -57,6 +57,21 @@ export function useCvState() {
       }
     }
 
+    // If still no avatar in adapted mode, try other locales' base CVs
+    if (route.query.mode === 'adapted' && !state.formSettings.profileImageDataUri) {
+      const otherLocales = ['es', 'en', 'pt'].filter(l => l !== i18n.locale.value)
+      for (const loc of otherLocales) {
+        const baseCvSettings = localStorage.getItem(`cvSettings-${loc}`)
+        if (baseCvSettings) {
+          const baseObj = JSON.parse(baseCvSettings)
+          if (baseObj.profileImageDataUri) {
+            state.formSettings.profileImageDataUri = baseObj.profileImageDataUri
+            break
+          }
+        }
+      }
+    }
+
     localStorage.setItem(storageKey, JSON.stringify(state.formSettings))
     state.isLoading = false
   }
