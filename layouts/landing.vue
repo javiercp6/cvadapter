@@ -124,9 +124,10 @@ useHead({
 
         <!-- Mobile -->
         <div class="flex md:hidden justify-between items-center h-full">
-          <NuxtLink :to="localePath('/')" class="text-2xl font-black tracking-tight text-[#191c1e]">
+          <!-- <NuxtLink :to="localePath('/')" class="text-2xl font-black tracking-tight text-[#191c1e]">
             ADAPTERCV
-          </NuxtLink>
+          </NuxtLink> -->
+          <LandingLogo/>
           <button
             class="p-2 rounded-lg text-[#191c1e] hover:bg-slate-100 transition-colors duration-200"
             @click="isMenuOpen = !isMenuOpen"
