@@ -83,7 +83,7 @@ useHead({
             {{ $t('nav-cv-editor') }}
           </NuxtLink>
           <NuxtLink
-            :to="localePath('/test2')"
+            :to="localePath('/adapter')"
             active-class="text-violet-600 font-semibold border-b-2 border-violet-600 pb-0.5"
             class="text-slate-600 hover:text-slate-900 transition-colors text-sm font-medium"
           >
@@ -182,7 +182,7 @@ useHead({
           <span>{{ $t('nav-cv-editor') }}</span>
         </NuxtLink>
         <NuxtLink
-          :to="localePath('/test2')"
+          :to="localePath('/adapter')"
           class="flex items-center px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 transition-colors"
           active-class="text-violet-600 font-medium bg-violet-50"
           @click="closeMenus"

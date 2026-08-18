@@ -110,7 +110,7 @@ useHead({
           {{ t('adapted-badge') }}
         </span>
         <NuxtLink
-          :to="localePath('/test2')"
+          :to="localePath('/adapter')"
           class="text-xs bg-white text-violet-700 px-3 py-1.5 rounded-lg font-semibold hover:bg-violet-50 transition-colors shadow-sm"
         >
           &larr; {{ t('back-to-base-cv') || 'Volver' }}

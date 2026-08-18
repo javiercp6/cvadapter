@@ -81,10 +81,10 @@ const getPlanFeatures = (plan: any) => {
 
 const handleFreePlan = () => {
   if (!user.value) {
-    navigateTo(localePath('login') + '?redirect=/test2')
+    navigateTo(localePath('login') + '?redirect=/adapter')
     return
   }
-  navigateTo(localePath('/test2'))
+  navigateTo(localePath('/adapter'))
 }
 </script>
 

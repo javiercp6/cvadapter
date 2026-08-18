@@ -215,7 +215,7 @@ useHead({
           <NuxtLink :to="localePath('/pricing')" class="text-slate-600 text-sm hover:text-[#316bf3] transition-all opacity-80 hover:opacity-100">
             {{ $t('nav-pricing') }}
           </NuxtLink>
-          <NuxtLink :to="localePath('/test2')" class="text-slate-600 text-sm hover:text-[#316bf3] transition-all opacity-80 hover:opacity-100">
+          <NuxtLink :to="localePath('/adapter')" class="text-slate-600 text-sm hover:text-[#316bf3] transition-all opacity-80 hover:opacity-100">
             {{ $t('nav-ai-adapter') }}
           </NuxtLink>
           <NuxtLink :to="localePath('/create')" class="text-slate-600 text-sm hover:text-[#316bf3] transition-all opacity-80 hover:opacity-100">
